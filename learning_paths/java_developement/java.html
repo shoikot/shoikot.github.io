@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Poetry in coding - Programming Can be Fun</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Use HotswapAgent with NetBeans to Speed up Development" />
+    <meta property="og:description" content="Page content description" />
+    <meta property="og:url" content="https://shoikot.github.io/learning_paths/java_developement/java.html" />
+    <meta property="og:image" content="https://shoikot.github.io/img/java.jpg" /> 
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"> Poetry in coding</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Java Developement</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../database_concepts/database.html">Database</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./quran.html">Listen Quran</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('../../img/java.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Use HotswapAgent with NetBeans to Speed up Development</h1>
+              <span class="meta">Posted by
+                <a href="#">Aminul Karim</a>
+                on July 12, 2018</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+     <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <b>With Java,</b> it’s always necessary to rebuild the source code in bytecode, which can be then safely updated only by restarting the whole application. And all developers know that restoring the desired state of the application after a fresh restart takes time and is tedious.
+            <p><span style="background-color: transparent;">Many developers know that</span><span style="background-color: transparent;">&nbsp;</span><a href="https://zeroturnaround.com/software/jrebel/" style="background-color: transparent;">JRebel</a><span style="background-color: transparent;">&nbsp;can help a lot with updating the code on the fly. But recently they have stopped providing the free service with personal jRebel account. </span></p>
+            
+            <p><span style="background-color: transparent;">Then I came across an open source alternative called </span><a href="http://hotswapagent.org/" target="_blank" style="background-color: transparent;">HotswapAgent</a><span style="background-color: transparent;">,&nbsp;</span><span style="background-color: transparent;">&nbsp;which has worked very well for me for my personal Java EE projects.&nbsp;</span><span style="background-color: transparent;">In this post, I’m going to write up how I got it running&nbsp;in my IDE and</span><span style="background-color: transparent;">&nbsp;</span>Payara Server<span style="background-color: transparent;">.</span></p>
+            
+            <p>
+            <h3>Getting started with HotswapAgent</h3>
+            HotswapAgent itself is just a java agent, which has to be attached to the application. It essentially scans the classpath to detect the presence of known frameworks and tries to refresh the frameworks after a code or resource change is detected. It’s also possible to write custom plugins for any project or even specifically for your application. However, getting the most of HotswapAgent requires installing an alternative DCEVM engine into your JRE installation, which does a much better job in reloading code changes than the standard VM engine in the HotSpot VM. The alternative VM engine is basically a patched version of the standard engine, which improves code hot swap via the debugging interface, without impacting other functions of the JVM.
+            </p>
+            
+            <div class="markdown-body">
+                      <h3>
+            <a id="user-content-important-note" class="anchor" href="#important-note" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Important Note</h3>
+            <ul>
+            <li>If you are currently using jRebel ,uninstall that plugin first</li>
+            <li>I have found that Hotswap agent only works on debug mode , Remember to debug your project after you have configured
+            hotswap agent ,</li>
+            <li>In case you have added new class Or packages,You just need to click on <code>Apply code changes</code> button  that's beside
+            netbeans debug button. You will need to click on <code>Apply code changes</code> also in case any of your code changes in those
+            newly added classes wasn't hotswaped</li>
+            <li>In case you have added multiple classes / renamed an existing class/ implemented new interface then goto each
+            individual class and click on <code>Apply code changes</code> button and your code change should be applied with debugger console
+            logs like following:</li>
+            </ul>
+            <pre>
+            <code>
+            Classes to reload:
+            com.testpack.TestClass
+            Code updated
+            </code></pre>
+            <h3>
+            <a id="user-content-required-configurations" class="anchor" href="#required-configurations" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required Configurations</h3>
+            <p>To use HotswapAgent with DCEVM while developing applications with NetBeans, the following changes are required:</p>
+            <p><strong>1.</strong> Check your java version with <code>java -version</code> command and download appropriate DCEVM from <a href="https://github.com/dcevm/dcevm/releases">https://github.com/dcevm/dcevm/releases</a>
+            Also download <code>hotswap-agent-1.3.0.jar</code> from <a href="https://github.com/HotswapProjects/HotswapAgent/releases">https://github.com/HotswapProjects/HotswapAgent/releases</a></p>
+            <p><strong>2.</strong> from your terminal run your DCEVM installer jar as an admin, with following command <code>java -jar DCEVM-8u172-installer.jar</code>, NB: <code>DCEVM-8u172-installer.jar</code> can have different version name based on you java installation</p>
+            <p><strong>3.</strong> The DCEVM installer window will open, select the java installation and click on <code>Install DCEVM as altjvm</code> button, after clicking it will set the <code>Installer altjvm</code> field to yes</p>
+            <p><strong>4.</strong> Now for Payara integration, copy <code>hotswap-agent-1.3.0.jar</code>, go to your payara server directory on disk, finally paste the jar into   <code>/glassfish/domains/domain1/lib/ext/</code> folder , finally the path would be <code>glassfish/domains/domain1/lib/ext/hotswap-agent-1.3.0.jar</code></p>
+            <p><strong>5.</strong> Again for linux user open <code>glassfish/config/asenv.conf</code> file into your notepad++ and specify that the AS_JAVA<br>
+            environment variable points to the Java installation like :
+            <code>AS_JAVA = /path_to_jdk/</code>
+            If you are using windows , open <code>glassfish/config/asenv.bat</code> file into your notepad++ and specify that the AS_JAVA<br>
+            environment variable points to the Java installation like this
+            <code>set AS_JAVA=C:\Program Files\Java\jdk1.8.0_171</code></p>
+            <p><strong>6.</strong> Now start your payara server from <code>Netbeans-&gt; Sevices -&gt; Servers -&gt; Payara</code> , After the server has started open <a href="http://localhost:4848/" rel="nofollow">http://localhost:4848/</a> on your browser , click <code>Configurations -&gt; server-config -&gt; JVM Settings</code> , now click on JVM Options tab and next click <code>Add JVM Options</code> button</p>
+            <ul>
+            <li>remove any <code>-client</code> Or <code>-server</code> option from JVM options list and click save</li>
+            <li>Add <code>-XXaltjvm=dcevm</code> option and click on <code>Save</code> button , restart your payara server from netbeans</li>
+            <li>Again add <code>-javaagent:"/path_on_your_disk/hotswap-agent-1.3.0.jar"</code> option , again restart payara server from netbeans</li>
+            <li>Now click the <code>General</code> tab just beside the Path Settings , enable Debug checkbox , set value of <code>Debug Options:</code> text
+            box to <code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=9009</code>
+            </li>
+            </ul>
+            <p><strong>7.</strong> Now back to Netbeans , Click Debug menu -&gt; click Attach Debugger , A Popup will open
+            select <code>Java Debugger</code> , select <code>SocketAttach</code> as connector, set <code>dt_socket</code> as Transport , 9009 as port ,<code>localhost</code>
+            as Host  and finally click ok to save ,</p>
+            <ul>
+            <li>Now goto Tools -&gt; Options -&gt; Java -&gt; Java Debugger and tick the <code>Apply code changes after save option</code>
+            </li>
+            <li>Right click on and open Project properties, goto Build -&gt; Compile and click Compile on Save</li>
+            <li>Right click on the project and go to project properties -&gt; Run -&gt; Deselect <code>Deploy on Save</code> -&gt; Click <code>OK</code> to save this settings</li>
+            <li>Right click on your WEB-INF folder and add the <code>hotswap-agent.properties</code> file, the contents of that file can be
+            found in the <strong><a href="#properties-file-configuration">Properties file Configuration</a></strong> section of this doc</li>
+            </ul>
+            <p><strong>8.</strong> Right click on your project , goto <code>Project Properties -&gt; Actions -&gt; Debug project</code> , At <code>Set Properties</code> text box add following new line<br>
+            <code>Env.MAVEN_OPTS=-XXaltjvm=dcevm -javaagent:"/path_on_your_disk/hotswap-agent-1.3.0.jar"</code></p>
+            <p><strong>9.</strong> After following step 1-8 you are ready , Start to debug your project , if hotswap is properly configured you should see following logs at the beginning of your debug session</p>
+            <pre><code>HOTSWAP AGENT: 16:04:39.142 INFO (org.hotswap.agent.HotswapAgent) - Loading Hotswap agent {1.3.0} - unlimited runtime class redefinition.
+            HOTSWAP AGENT: 16:04:39.375 INFO (org.hotswap.agent.config.PluginRegistry) - Discovered plugins: [Hotswapper, JdkPlugin, AnonymousClassPatch, ClassInitPlugin, WatchResources]
+            Listening for transport dt_socket at address: 9009
+            </code></pre>
+            <p><strong>After you save changes to a class from netbeans</strong>, netbeans  will show Updating Your App at the bottom then
+            hotswap redefines changed class on run time and it shows logs like following:</p>
+            <pre><code>Info:   HOTSWAP AGENT: 16:59:56.630 RELOAD (org.hotswap.agent.plugin.jvm.AnonymousClassPatchPlugin) - Class 'com/testPack/TestClass' has been enhanced with anonymous classes for hotswap.
+            </code></pre>
+            <p>Features available for current version of  hotswap is listed here, it change method body, add/rename a method, field, The only unsupported operation is hierarchy change (change the superclass or remove an interface).
+            You can use standard Java Hotswap from IDE in debug mode to reload changed class <a href="https://github.com/HotswapProjects/HotswapAgent#what-is-available">https://github.com/HotswapProjects/HotswapAgent#what-is-available</a></p>
+            <h3>
+            <a id="user-content-properties-file-configuration" class="anchor" href="#properties-file-configuration" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Properties file Configuration</h3>
+            <p>create a file named "hotswap-agent.properties" inside your resources directory, see available properties and default values: <a href="https://github.com/HotswapProjects/HotswapAgent/blob/master/hotswap-agent-core/src/main/resources/hotswap-agent.properties">https://github.com/HotswapProjects/HotswapAgent/blob/master/hotswap-agent-core/src/main/resources/hotswap-agent.properties</a></p>
+            <p>**I've set my <code>hotswap-agent.properties</code> file into <code>WEB-INF</code> folder like following **</p>
+            <div class="well">
+            <pre><code>
+# Default agent properties
+# You can override them in your application by creating hotswap-agent.properties file in class root
+# and specifying new property values.
+            
+# Add a directory prior to application classpath (load classes and resources).
+#
+# This may be useful for example in multi module maven project to load class changes from upstream project
+# classes. Set extraClasspath to upstream project compiler output and .class file will have precedence to
+# classes from built JAR file.
+extraClasspath=target/classes/
+            
+# Watch for changes in a directory (resources only). If not set, changes of resources won't be observed.
+#
+# Similar to extraClasspath this property adds classpath when searching for resources (not classes).
+# While extra classpath just modifies the classloader, this setting does nothing until the resource
+# is really changed.
+#
+# Sometimes it is not possible to point extraClasspath to your i.e. src/main/resources, because there are multiple
+# replacements of resources in a building step (maven filtering resource option).
+# This setting will leave i.e. src/target/classes as default source for resources, but after the resource is modified
+# in src/main/resources, the new changed resource is served instead.
+watchResources=src/main/resources
+            
+# Load static web resources from different directory.
+#
+# This setting is dependent on application server plugin(Jetty, Tomcat, ...).
+# Jboss and Glassfish are not yet supported.
+# Use this setting to set to serve resources from source directory directly (e.g. src/main/webapp).
+webappDir=src/main/webapp
+            
+            
+# Comma separated list of disabled plugins
+# Use plugin name - e.g. Hibernate, Spring, ZK, Hotswapper, AnonymousClassPatch, Tomcat, Logback ....
+disabledPlugins=
+            
+# Watch for changed class files on watchResources path and reload class definition in the running application.
+#
+# Usually you will launch debugging session from your IDE and use standard hotswap feature.
+# This property is useful if you do not want to use debugging session for some reason or
+# if you want to enable hotswap at runtime environment.
+#
+# Internally this uses java Instrumentation API to reload class bytecode. If you need to use JPDA API instead,
+# specify autoHotswap.port with JPDA port.
+autoHotswap=true
+            
+# The base package prefix of your spring application (e.g. org.hotswap.).
+# Needed when component scan is turned off, so we can still know which classes is your beans
+# Can also be set to filter beans we handle to improve performance (So that we won't create proxy for thirty party lib's beans).
+# Comma separated.
+#spring.basePackagePrefix=
+            
+# Create Java Platform Debugger Architecture (JPDA) connection on autoHotswap.port, watch for changed class files
+# and do the hotswap (reload) in background.
+#
+# You need to specify JPDA port at startup
+# &lt;pre&gt;java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000&lt;/pre&gt;
+autoHotswap.port=9009
+            
+# Enables debugging in OsgiEquinox
+# osgiEquinox.debugMode=true
+            
+# Setup reloading strategy of bean INSTANCE(s) in Weld CONTEXT(s). While bean class is redefined by DCEVM, reloading of bean instances
+# can be customized by this parameter. Available values:
+#   - CLASS_CHANGE - reload bean instance on any class modification, plus reaload on changes specified in
+#     METHOD_FIELD_SIGNATURE_CHANGE and FIELD_SIGNATURE_CHANGE strategies
+#   - METHOD_FIELD_SIGNATURE_CHANGE - reload bean instance on any method/field change. Includes changes specified in
+#     strategy FIELD_SIGNATURE_CHANGE 
+#   - FIELD_SIGNATURE_CHANGE - reload bean instance on any field signature change. Includes also field annotation changes
+#   - NEVER - never reload bean (default)
+# weld.beanReloadStrategy=NEVER
+            
+# Logger setup - use entries in the format of
+# format:  LOGGER.my.package=LEVEL
+# e.g.     LOGGER.org.hotswap.agent.plugin.myPlugin=trace
+# root level
+LOGGER=info
+# DateTime format using format of SimpleDateFormat, default value HH:mm:ss.SSS
+# LOGGER_DATETIME_FORMAT=HH:mm:ss.SSS
+            
+# Print output into logfile (with choice to append - false by default)
+# LOGFILE=agent.log
+# LOGFILE.append=true
+            
+# Comma separated list of class loaders to exclude from initialization, in the form of RegEx patterns.
+#excludedClassLoaderPatterns=jdk.nashorn.*
+            
+            </code></pre>
+            </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy;  Poetry in coding 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../../js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
