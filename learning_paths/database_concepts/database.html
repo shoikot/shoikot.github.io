@@ -89,30 +89,34 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <p><strong>What are advantages of DBMS over traditional file based systems?</strong><br>
-              Database management systems were developed to handle the following difﬁculties of typical ﬁle-processing systems supported by conventional operating systems.<br>
-              1. Data redundancy and inconsistency<br>
-              2. Difﬁculty in accessing data<br>
-              3.  Data isolation – multiple ﬁles and formats<br>
-              4. Integrity problems<br>
-              5.  Atomicity of updates<br>
-              6. Concurrent access by multiple users<br>
-              7.  Security problems<br>
-              Source: <a href="http://cs.nyu.edu/courses/spring01/G22.2433-001/mod1.2.pdf" target="_blank">http://cs.nyu.edu/courses/spring01/G22.2433-001/mod1.2.pdf</a></p>
-          <br/>
+          <p><strong>What are advantages of DBMS over traditional file based systems?</strong><br>
+            Database management systems were developed to handle the following difﬁculties of typical ﬁle-processing
+            systems supported by conventional operating systems.<br>
+            1. Data redundancy and inconsistency<br>
+            2. Difﬁculty in accessing data<br>
+            3. Data isolation – multiple ﬁles and formats<br>
+            4. Integrity problems<br>
+            5. Atomicity of updates<br>
+            6. Concurrent access by multiple users<br>
+            7. Security problems<br>
+            Source: <a href="http://cs.nyu.edu/courses/spring01/G22.2433-001/mod1.2.pdf" target="_blank">http://cs.nyu.edu/courses/spring01/G22.2433-001/mod1.2.pdf</a></p>
+          <br />
           <h3>What is a Database Key ?</h3>
-          Database Key is a group of atributes Or a single attribute that is to identify db row uniquely Or stablish relation ships
+          Database Key is a group of atributes Or a single attribute that is to identify db row uniquely Or stablish
+          relation ships
           among the tables
-          <br/>
+          <br />
           <h3>What is a Super Key?</h3>
-          A superkey is a set of attributes of a relation schema upon which all attributes of the schema are functionally dependent. Super key can be used to uniquely identify rows in a table.
-          <br/>
+          A superkey is a set of attributes of a relation schema upon which all attributes of the schema are
+          functionally dependent. Super key can be used to uniquely identify rows in a table.
+          <br />
           <h3>What is Candidate Key ?</h3>
           A Super key with no redundant attribute
 
           <h3>What is a Primary Key?</h3>
-          <p>A Primary Key is one of the candidate keys. One of the candidate keys is selected as most important and becomes the primary key. There cannot be more that one primary keys in a table.</p>
-          
+          <p>A Primary Key is one of the candidate keys. One of the candidate keys is selected as most important and
+            becomes the primary key. There cannot be more that one primary keys in a table.</p>
+
           <pre>
           Employee which has columns : Emp_SSN , Emp_Number	, Emp_Name
 
@@ -134,11 +138,928 @@
 
           Primary key is being selected from the sets of candidate keys by database designer. So Either {Emp_SSN} or {Emp_Number} can be the primary key.
           </pre>
-          <h3>What is a Foreign Key?</h3>
-          <div></div>
-          
+
         </div>
       </div>
+    </div>
+
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h1 align="center" style="text-align:center;">
+        <b><span>Database Introduction</span></b><b><span> </span></b></h1> <b><span>Database </span></b><span>is a
+        collection of related data and data is a collection of facts and figures that can be processed to produce
+        information. Mostly data represents </span><span>record-able</span><span> facts. Data aids in producing
+        information,which is based on facts. For example, if we have data about marks obtained by all students, we can
+        then conclude about toppers and average marks.</span><span> </span></p> <b><span>Meta data</span></b><span> is
+        data about data; it describes the content, relation or facts and allows locating and retrieving data easily.
+      </span><span>Meta-data</span><span> itself follows a layered architecture, so that when we change data at one
+        layer, it does not affect the data at another level. This data is independent but mapped to each other</span><span>.</span><span>
+      </span></p> <span>A </span><b><span>database management system </span></b><span>stores data in
+        such a way that it becomes easier to retrieve, manipulate, and produce information.</span> 
+      </span><span>Database Management System or DBMS in short, refers to the technology of storing and retrieving
+        users<font face="Times New Roman">’ </font>
+        <font face="Calibri">data with utmost efficiency along with safety and security features. DBMS allows its users
+          to create their own databases which are relevant with the nature of work they want. These databases are
+          highly configurable and offers bunch of options.</font>
+      </span><span> </span></p> <span>Mainly of 4 types: i. Hierarchical DBMS. ii. Relational DBMS. iii. Network DBMS.
+        iv. Inverted DBMS</span><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Architecture</span></b><b><span> </span></b></h1> <span>The
+        design of a DBMS depends on its architecture. It can be centralized or decentralized or hierarchical. The
+        architecture of a DBMS can be seen as either single tier or multi-tier. An n-tier architecture divides the
+        whole system into related but independent </span><b><span>n </span></b><span>modules, which can be
+        independently modified,</span> <span>altered, changed, or replaced. </span><span> </span></p>
+      <span>In 1-tier architecture, the DBMS is the only entity where the user directly sits on the DBMS and uses it.
+        Any changes done here will directly be done on the DBMS itself. It does not provide handy tools for end-users.
+        Database designers and programmers normally prefer to use single-tier architecture.</span><span> </span></p>
+      <span>If the architecture of DBMS is 2-tier, then it must have an application through which the DBMS can be
+        accessed. Programmers use 2-tier architecture where they access the DBMS by means of an application. Here the
+        application tier is entirely independent of the database in terms of operation, design, and</span> <span>programming.</span><span>
+      </span></p> <b><span class="21">3-Tier Architecture</span></b> <span class="19">A 3-tier
+        architecture separates its tiers from each other based on the complexity</span><span> </span><span class="19">of
+        the users and how they use the data present in the database. It is the most</span><span> </span><span class="19">widely
+        used architecture to design a DBMS.</span><span class="19"> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="260" height="287" src="Database1.files/Database12458.png"><span>
+        </span></p> <b><span>Database (Data) Tier</span></b><span>: At this tier, the database resides along with its
+        query processing languages. We also have the relations that define the data and their constraints at this
+        level.</span><span> </span></p> <b><span>Application (Middle) Tier</span></b><span>: At this tier reside the
+        application server and the programs that access the database. For a user, this application tier presents an
+        abstracted view of the database. End-users are unaware of any existence of the database beyond the application.
+        At the other end, the database tier is not aware of any other user beyond the application tier. Hence, the
+        application layer sits in the middle and acts as a mediator between the end-user and the database.</span><span>
+      </span></p> <b><span>User (Presentation) Tier</span></b><span>: End-users operate on this tier and they know
+        nothing about any existence of the database beyond this layer. At this layer, multiple views of the database
+        can be provided by the application. All views are generated by applications that reside in the application
+        tier.</span><span> </span></p> <span>Multiple-tier database architecture is highly modifiable, as almost all
+        its components are independent and can be changed independently.</span><span> </span></p>
+      <h2><b><span>Data Model</span></b><b><span> </span></b></h2> <span>Data models define how the logical structure
+        of a database is modeled. Data Models are fundamental entities to introduce abstraction in a DBMS. Data models
+        define how data is connected to each other and how they are processed and stored inside the system. The very
+        first data model could be flat data-models, where all the data used are to be kept in the same plane. Earlier
+        data models were not so scientific, hence they were prone to introduce lots of duplication and update anomalies</span><span>
+      </span></p>
+      <p class="NewStyle28" style=" ">
+        <!--[if !supportLists]--><span style=" "><span
+            style=" ">i.<span> </span></span></span>
+        <!--[endif]--><span>Entity-Relationship Model</span><span> </span></p>
+      <p class="NewStyle28" style=" ">
+        <!--[if !supportLists]--><span style=" "><span
+            style=" ">ii.<span> </span></span></span>
+        <!--[endif]--><span>Relational Model</span><span> </span></p> <span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Entity-Relationship Model</span></b><b><span> </span></b></h1>
+      <span>Entity-Relationship (ER) Model is based on the notion of real-world entities and relationships among them.
+        While formulating real-world scenario into the database model, the ER Model creates entity set, relationship
+        set, general attributes, and constraints. ER Model is best used for the conceptual design of a database.</span>
+      <span>ER
+        Model is based on:</span> <span>- </span><b><span>Entities </span></b><span>and their
+        attributes</span><i> .</span></i><i> <br></span></i><span>- </span><b><span>Relationships
+        </span></b><span>among entities.</span> <span>These concepts are explained below</span><span>
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="636" height="233" src="Database1.files/Database14563.png"><span>
+        </span></p> <b><span>Entity</span></b><b> </b><span>An entity in an ER Model is a real-world
+        entity having properties called </span><b><span>attributes</span></b><span>. Every attribute is defined by its
+        set of values called </span><b><span>domain</span></b><span>. For example, in a school database, a student is
+        considered as an entity. Student has various attributes like name, age, class, etc.</span><span> </span></p> <b><span>Relationship</span></b><b><span>
+        </span></b></p> <span>The logical association among entities is called </span><b><span>relationship</span></b><span>.
+        Relationships are mapped with entities in various ways. Mapping cardinalities define the number of association
+        between two entities.</span> <span>Mapping cardinalities:</span> <span>- one to
+        one</span> <span>- one to many</span> <span>- many to one</span> <span>-
+        many to many</span><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Database Schema</span></b><b><span> </span></b></h1> <span>A
+        database schema is the skeleton structure that represents the logical view of the entire database. It defines
+        how the data is organized and how the relations among them are associated. It formulates all the constraints
+        that are to be applied on the data.</span><span> </span></p> <span>A database schema defines
+        its entities and the relationship among them. It contains a descriptive detail of the database, which can be
+        depicted by means of schema diagrams. It’s the database designers who design the schema to help programmers
+        understand the database and make it useful.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="596" height="468" src="Database1.files/Database15701.png"><span>
+        </span></p> <span>A database schema can be divided broadly into two categories:</span><span> </span></p> <b><span>Physical
+          Database Schema</span></b><span>: This schema pertains to the actual storage of data and its form of storage
+        like files, indices, etc. It defines how the data will be stored in a secondary storage.</span><span> </span></p>
+      <b><span>Logical Database Schema</span></b><span>: This schema defines all the logical constraints that need to
+        be applied on the data stored. It defines tables, views, and integrity constraints.</span><span> </span></p>
+      <h2><b> Database
+            Instance</span></b><b> 
+          </span></b></h2> <span>A database instance is a state of operational database with data at any given time. It
+        contains a snapshot of the database. Database instances tend to change with time. A DBMS ensures that its every
+        instance (state) is in a valid state, by diligently following all the validations, constraints, and conditions
+        that the</span> <span>database designers have imposed.</span><span> </span></p>
+      <h2><b><span>Data Independence</span></b><b><span> </span></b></h2> <span>A database system normally contains a
+        lot of data in addition to users’ data. For example, it stores data about data, known as metadata, to locate
+        and retrieve data easily. It is rather difficult to modify or update a set of metadata once it is stored in the
+        database. But as a DBMS expands, it needs to change over time to satisfy the requirements of the users. If the
+        entire data is dependent, it would become a tedious and highly complex job.</span><span> </span></p> <b><span
+          class="21">Logical Data Independence</span></b><b> </b><span>Logical data is data about
+        database, that is, it stores information about how data is managed inside. For example, a table (relation)
+        stored in the database and all its constraints applied on that relation.</span><span> </span></p> <span>Logical
+        data independence is a kind of mechanism, which liberalizes itself from actual data stored on the disk. If we
+        do some changes on table format, it should not change the data residing on the disk.</span><span> </span></p>
+      <b><span class="21">Physical Data Independence</span></b><b> </b><span>all the
+        schemas are logical, and the actual data is stored in bit format on the disk. Physical data independence is the
+        power to change the physical data without impacting the schema or logical data.</span> <span>For
+        example, in case we want to change or upgrade the storage system itself — suppose we want to replace hard-disks
+        with SSD — it should not have any impact on the logical data or schemas.</span><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>ER Model- Basic Concepts</span></b><b><span> </span></b></h1>
+      <span> </span></p> <span>The ER model defines the conceptual view of a database. It works around real world
+        entities and the associations among them. At view level, the ER model is considered a good option for designing
+        databases.</span><span> </span></p>
+      <h2><b><span>Entity</span></b><b><span> </span></b></h2> <span>An </span><b><span>entity</span></b><span> can be
+        a real-world object, either animate or inanimate, that can be easily identifiable. For example, in a school
+        database, students, teachers, classes, and courses offered can be considered as entities. All these entities
+        have some attributes or properties that give them their identity.</span><span> </span></p> <span> </span></p>
+      <span> </span></p> <span>An </span><b><span>entity set</span></b><span> is a collection of
+        similar types of entities. An entity set may contain entities with attribute sharing similar values. For
+        example, a Students set may contain all the students of a school; likewise a Teachers set may contain all the
+        teachers of a school from all faculties. Entity sets need not be disjoint.</span><span> </span></p> <b><span
+          class="16">Attributes</span></b><b> </b><span>Entities are represented by means of their
+        properties called </span><b><span>attributes</span></b><span>. All attributes have values. For example, a
+        student entity may have name, class, and age as attributes.</span> <span>There exists a domain
+        or range of values that can be assigned to attributes. For example, a student's name cannot be a numeric value.
+        It has to be alphabetic. A student's age cannot be negative, etc.</span> <b><span> </span></b></p>
+      <b><span class="16">Types of Attributes</span></b><b> </b><span>- </span><b><span>Simple
+          attribute: </span></b><span>Simple attributes are atomic values, which cannot be divided further. For
+        example, a student's phone number is an atomic value of 10 digits.</span> <span>- </span><b><span>Composite
+          attribute: </span></b><span>Composite attributes are made of more than one simple attribute. For example, a
+        student's complete name may have first_name and last_name.</span> <span>- </span><b><span>Derived
+          attribute: </span></b><span>Derived attributes are the attributes that do not exist in the physical database,
+        but their values are derived from other attributes present in the database. For example, average_salary in a</span>
+      <span>department
+        should not be saved directly in the database, instead it can be derived. For another example, age can be
+        derived from data_of_birth.</span><span> </span></p> <b><span>- Single-value attribute: </span></b><span>Single-value
+        attributes contain single value. For example: Social_Security_Number.</span> <span>- </span><b><span>Multi-value
+          attribute: </span></b><span>Multi-value attributes may contain more than one values. For example, a person
+        can have more than one phone number, email_address, etc.</span> <span>These attribute types can
+        come together in a way like:</span> <span>- simple single-valued attributes</span> <span>-
+        simple multi-valued attributes</span> <span>- composite single-valued attributes</span> <span>-
+        composite multi-valued attributes</span><span> </span></p> <b><span class="16">Entity-Set and Keys</span></b><b>
+      </b><span>Key
+        is an attribute or collection of attributes that uniquely identifies an entity among entity set.</span> <span>For
+        example, the roll_number of a student makes him/her identifiable among students.</span> <span>-
+      </span><b><span>Super Key</span></b><span>: A set of attributes (one or more) that collectively identifies an
+        entity in an entity set.</span> <span>- </span><b><span>Candidate Key</span></b><span>: A
+        minimal super key is called a candidate key. An entity set may have more than one candidate key.</span> <span>-
+      </span><b><span>Primary Key</span></b><span>: A primary key is one of the candidate keys chosen by the database
+        designer to uniquely identify the entity set.</span><span> </span></p> <span> </span></p>
+      <h2><b><span>Relationship</span></b><b><span> </span></b></h2> <span>The association among entities is called a
+        relationship. For example, an employee </span><b><span>works_at </span></b><span>a department, a student </span><b><span>enrolls
+        </span></b><span>in a course. Here, Works_at and Enrolls are called relationships</span><span> </span></p>
+      <h2><b><span>Relationship Set</span></b><b><span> </span></b></h2> <span>A set of relationships of similar type
+        is called a relationship set. Like entities, a relationship too can have attributes. These attributes are
+        called </span><b><span>descriptive attributes</span></b><span>.</span><span> </span></p> <b><span class="16">Degree
+          of Relationship</span></b><b> </b><span>The number of participating
+        entities in a relationship defines the degree of the relationship.</span><span> </span></p> <span>- Binary =
+        degree 2</span> <span>- Ternary = degree 3</span> <span>- n-ary = degree</span><span>
+      </span></p> <b><span class="16">Mapping Cardinalities</span></b><b> </b><b><span>Cardinality
+        </span></b><span>defines the number of entities in one entity set, which can be associated with the number of
+        entities of other set via relationship set.</span> <b><span>One-to-one</span></b><span>: One
+        entity from entity set A can be associated with at most one entity of entity set B and vice versa.</span><span>
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="312" height="215" src="Database1.files/Database111640.png"><span>
+        </span></p> <b><span>One-to-many</span></b><span>: One entity from entity set A can be associated with more
+        than one entities of entity set B, however an entity from entity set B can be associated with at most one
+        entity.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="321" height="231" src="Database1.files/Database111826.png"><span>
+        </span></p> <b><span>Many-to-one</span></b><span>: More than one entities from entity set A can be associated
+        with at most one entity of entity set B, however an entity from entity set B can be associated with more than
+        one entity from entity set A.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="332" height="277" src="Database1.files/Database112040.png"><span>
+        </span></p> <b><span>Many-to-many</span></b><span>: One entity from A can be associated with more than one
+        entity from B and vice versa.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="366" height="291" src="Database1.files/Database112141.png"><span>
+        </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>ER Diagram Representation</span></b><b><span> </span></b></h1>
+      <b><span>Entity</span></b><b> </b><span>Entities are represented by means of rectangles.
+        Rectangles are named with the entity set they represent.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="615" height="102" src="Database1.files/Database112291.png"><span>
+        </span></p> <b><span>Attributes</span></b><b><span> </span></b></p> <span>Attributes are the properties of
+        entities. Attributes are represented by means of ellipses. Every ellipse represents one attribute and is
+        directly connected to its entity (rectangle).</span><span> </span></p> <span>If the attributes are </span><b><span>composite</span></b><span>,
+        they are further divided in a tree like structure. Every node is then connected to its attribute. That is,
+        composite attributes are represented by ellipses that are connected with an ellipse. </span><span> </span></p>
+      <b><span>Multivalued </span></b><span>attributes are depicted by double ellipse.</span><b><span style=" ">
+        </span></b><b><span style=" ">
+        </span></b></p> <b><span>Derived </span></b><span>attributes are depicted by dashed ellipse.</span><span>
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="610" height="435" src="Database1.files/Database112821.png"><span>
+        </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <h2><b> Relationship</span></b><b><span
+            class="22" style=" ">
+          </span></b></h2> <span>Relationships are represented by diamond-shaped box. Name of the relationship is
+        written inside the diamond-box. All the entities (rectangles) participating in a relationship are connected to
+        it by a line.</span> <b><span> </span></b></p> <b><span>Binary Relationship and Cardinality</span></b><b> </b><span>a
+        relationship where two entities are participating is called a </span><b><span>binary relationship</span></b><span>.
+        Cardinality is the number of instance of an entity from a relation that can be associated with the relation.</span>
+      <b><span>One-to-one:
+        </span></b><span>When only one instance of an entity is associated with the relationship, it is marked as
+        '1:1'. The following image reflects that only one instance of each entity should be associated with the
+        relationship. It depicts one-to-one relationship.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="542" height="176" src="Database1.files/Database113531.png"><span>
+        </span></p> <b><span>One-to-many: </span></b><span>When more than one instance of an entity is associated with
+        a relationship, it is marked as '1:N'. The following image reflects that only one instance of entity on the
+        left and more than one instance of an entity on the right can be associated with the relationship. It depicts
+        one-to-many relationship.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="540" height="173" src="Database1.files/Database113850.png"><span>
+        </span></p> <b><span>Many-to-many: </span></b><span>The following image reflects that more than one instance of
+        an entity on the left and more than one instance of an entity on the right can be associated with the
+        relationship. It depicts many-to-many relationship.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="590" height="209" src="Database1.files/Database114080.png"><span>
+        </span></p> <b><span>Participation Constraints</span></b><b> </b><span style=" ">·</span><span>
+      </span><b><span>Total Participation</span></b><span>: Each entity is involved in the relationship. Total
+        participation is represented by double lines.</span> <span style=" ">·</span><span>
+      </span><b><span>Partial participation</span></b><span>: Not all entities are involved in the relationship.
+        Partial participation is represented by single lines.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="637" height="231" src="Database1.files/Database114358.png"><span>
+        </span></p> <b><span>Inheritance</span></b><b><span> </span></b></p> <span>Inheritance is an important feature
+        of Generalization and Specialization. It allows lower-level entities to inherit the attributes of higher-level
+        entities</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="470" height="496" src="Database1.files/Database114528.png"><span>
+        </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Codd<font face="Cambria">’</font>
+            <font face="Calibri">s Rule</font>
+          </span></b><b><span> </span></b></h1> <span>Dr Edgar F. Codd, after his extensive research on the Relational
+        Model of database systems, came up with twelve rules of his own, which according to him, a database must obey
+        in order to be regarded as a true relational database. These rules can be applied on any database system that
+        manages stored data</span> <span>using only its relational capabilities. This is a foundation
+        rule, which acts as a base for all the other rules.</span><span> </span></p> <b><span>Rule 1: Information Rule</span></b><b>
+      </b><span>The
+        data stored in a database, may it be user data or metadata, must be a value of some table cell. Everything in a
+        database must be stored in a table format.</span> <b><span>Rule 2: Guaranteed Access Rule</span></b><b> </b><span>Every
+        single data element (value) is guaranteed to be accessible logically with a combination of table-name,
+        primary-key (row value), and attribute-name (column value). No other means, such as pointers, can be used to
+        access data.</span> <b><span>Rule 3: Systematic Treatment of NULL Values</span></b><b> </b><span>The
+        NULL values in a database must be given a systematic and uniform treatment. This is a very important rule
+        because a NULL can be interpreted as</span> <span>one the following: data is missing, data is
+        not known, or data is not applicable.</span> <b><span>Rule 4: Active Online Catalog</span></b><b> </b><span>The
+        structure description of the entire database must be stored in an online catalog, known as </span><b><span>data
+          dictionary</span></b><span>, which can be accessed by authorized users. Users can use the same query language
+        to access the catalog which they use to</span> <span>access the database itself.</span> <b><span>Rule
+          5: Comprehensive Data Sub-Language Rule</span></b><b> </b><span>A database can only be
+        accessed using a language having linear syntax that supports data definition, data manipulation, and
+        transaction management operations. This language can be used directly or by means of some application. If the
+        database allows access to data without any help of this language, then it is considered as a violation.</span><span>
+      </span></p> <b><span>Rule 6: View Updating Rule</span></b><b> </b><span>All the views of a
+        database, which can theoretically be updated, must also be updatable by the system.</span> <b><span>Rule
+          7: High-Level Insert, Update, and Delete Rule</span></b><b> </b><span>A database must support
+        high-level insertion, updation, and deletion. This must not be limited to a single row, that is, it must also
+        support union, intersection and minus operations to yield sets of data records.</span> <b><span>Rule
+          8: Physical Data Independence</span></b><b> </b><span>The data stored in a database must be
+        independent of the applications that access the database. Any change in the physical structure of a database
+        must not have any impact on how the data is being accessed by external applications.</span> <b><span>Rule
+          9: Logical Data Independence</span></b><b> </b><span>The logical data in a database must be
+        independent of its user’s view (application). Any change in logical data must not affect the applications using
+        it. For example, if two tables are merged or one is split into two different tables,</span> <span>there
+        should be no impact or change on the user application. This is one of the most difficult rule to apply.</span>
+      <b><span>Rule
+          10: Integrity Independence</span></b><b> </b><span>A database must be independent of the
+        application that uses it. All its integrity constraints can be independently modified without the need of any
+        change in the application. This rule makes a database independent of the front-end application and its
+        interface.</span> <b><span>Rule 11: Distribution Independence</span></b><b> </b><span>The
+        end-user must not be able to see that the data is distributed over various locations. Users should always get
+        the impression that the data is located at one site only. This rule has been regarded as the foundation of
+        distributed database systems.</span> <b><span>Rule 12: Non-Subversion Rule</span></b><b> </b><span>If
+        a system has an interface that provides access to low-level records, then the interface must not be able to
+        subvert the system and bypass security and integrity constraints.</span><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Relational data model</span></b><b><span> </span></b></h1>
+      <span>Relational data model is the primary data model, which is used widely around the world for data storage and
+        processing. This model is simple and it has all the properties and capabilities required to process data with
+        storage efficiency.</span><span> </span></p> <b><span>Concepts</span></b><b> </b><b><span>Tables</span></b><span>:
+        In relational data model, relations are saved in the format of Tables. This format stores the relation among
+        entities. A table has rows and columns, where rows represent records and columns represent the attributes.</span>
+      <b><span>Tuple</span></b><span>:
+        A single row of a table, which contains a single record for that relation, is called a tuple.</span> <b><span>Relation
+          instance</span></b><span>: A finite set of tuples in the relational database system represents relation
+        instance. Relation instances do not have duplicate tuples.</span> <b><span>Relation schema</span></b><span>:
+        A relation schema describes the relation name (table name), attributes, and their names.</span> <b><span>Relation
+          key</span></b><span>: Each row has one or more attributes, known as relation key, which can identify the row
+        in the relation (table) uniquely.</span> <b><span>Attribute domain</span></b><span>: Every
+        attribute has some predefined value scope, known as attribute domain.</span><span> </span></p> <b><span>Constraints</span></b><b>
+      </b><span>every
+        relation has some conditions that must hold for it to be a valid relation. These conditions are called </span><b><span>Relational
+          Integrity Constraints</span></b><span>. There are three main integrity constraints:</span> <span style=" ">·</span><span>
+        Key constraints</span> <span style=" ">·</span><span>
+        Domain constraints</span> <span style=" ">·</span><span>
+        Referential integrity constraints</span> <b><span>Key Constraints</span></b><b> </b><span>There
+        must be at least one minimal subset of attributes in the relation, which can identify a tuple uniquely. This
+        minimal subset of attributes is called </span><b><span>key </span></b><span>for that relation. If there are
+        more than one such minimal subset, these are called </span><b><span>candidate keys</span></b><span>. Key
+        constraints force that: </span><span> </span></p> <span style=" ">·</span><span>
+        In a relation with a key attribute, no two tuples can have identical values for key attributes.</span> <span
+        style=" ">·</span><span>
+        A key attribute cannot have NULL values.</span> <span>Key constraints are also referred to as
+      </span><b><span>Entity Constraints</span></b><span>.</span><span> </span></p> <b><span>Domain Constraints</span></b><b>
+      </b><span>Attributes
+        have specific values in real-world scenario. For example, age can only be a positive integer. The same
+        constraints have been tried to employ on the attributes of a relation. Every attribute is bound to have a
+        specific range of values. For example, age cannot be less than zero and telephone numbers</span> <span>cannot
+        contain a digit outside 0-9.</span><span> </span></p> <b><span>Referential Integrity
+          Constraints</span></b><b> </b><span>Referential integrity constraints work on the concept of
+        Foreign Keys. A foreign key is a key attribute of a relation that can be referred in other relation.
+        Referential integrity constraint states that if a relation refers to a key attribute of a different or same
+        relation, then that key element must exist.</span><span> </span></p> <b><span>Weak Entity Sets</span></b><b><span>
+        </span></b></p> <span>A weak entity set is one which does not have any primary key associated with it.</span><span>
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="598" height="230" src="Database1.files/Database120855.png"><span>
+        </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Normalization</span></b><b><span> </span></b></h1> <span>If
+        a database design is not perfect, it may contain anomalies like</span> <span style=" ">·</span><span>
+      </span><b><span>Update anomalies</span></b><span>: If data items are scattered and are not linked to each other
+        properly, then it could lead to strange situations. For example, when we try to update one data item having its
+        copies scattered over several places, a few instances get updated properly while a few others are left with old
+        values. Such instances leave the database in an inconsistent state.</span> <span style=" ">·</span><span>
+      </span><b><span>Deletion anomalies</span></b><span>: We tried to delete a record, but parts of it were left
+        undeleted because of unawareness, the data is also saved somewhere else.</span> <span style=" ">·</span><span>
+      </span><b><span>Insert anomalies</span></b><span>: We tried to insert data in a record that does not exist at
+        all.</span> <b><span>Normalization</span></b><span> is a method to remove all these anomalies
+        and bring the database to a consistent state.</span><span> </span></p>
+      <h2><b><span>Functional Dependency</span></b><b><span> </span></b></h2> <span>The attribute of table is said to
+        dependent on each other when an attribute of a table uniquely identifies another attribute of the same table.</span><span>
+      </span></p> <span>For example , Student(Id,Name,Age) table id uniquely identifies other attributes like name and
+        age , by knowing the student id we can find the student name and age , there for name and age are said to
+        functionally dependent on id and can be written as Id -&gt; Name </span><span> </span></p>
+      <h2><b><span>Transitive Dependency</span></b><b><span> </span></b></h2> <span>A functional dependency is said to
+        be transitive if it is indirectly formed by two functional dependencies For example,</span><span> </span></p>
+      <span>X-&gt;Z is a transitive dependency if the following two functional dependencies hold true:</span><span>
+      </span></p> <span>X-&gt;Y</span><span> </span></p> <span>Y-&gt;Z</span><span> </span></p> <b><span class="16">Armstrong's
+          Axioms</span></b><b> </b><span>If F is a set of functional dependencies then the closure of
+        F, denoted as F+, is the set of all functional dependencies logically implied by F. Armstrong's Axioms are a
+        set of rules that, when applied repeatedly, generates a closure of functional dependencies.</span> <span style=" ">·</span><span>
+      </span><b><span>Reflexive rule</span></b><span>: If alpha is a set of attributes and beta is_subset_of alpha,
+        then alpha holds beta.</span> <span style=" ">·</span><span>
+      </span><b><span>Augmentation rule</span></b><span>: If a → b holds and y is attribute set, then ay → by also
+        holds. That is adding attributes in dependencies, does not change the basic dependencies.</span> <span style=" ">·</span><span>
+      </span><b><span>Transitivity rule</span></b><span>: Same as transitive rule in algebra, if a → b holds and b→ c
+        holds, then a → c also holds. a → b is called as a functionally that determines b</span><span> </span></p>
+      <h2><b><span>First Normal Form</span></b><b><span> </span></b></h2> <span>First Normal Form is defined in the
+        definition of relations (tables) itself. This rule defines that all the attributes in a relation must have
+        atomic domains. The values in an atomic domain are indivisible units.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="314" height="124" src="Database1.files/Database123262.png"><span>
+        </span></p> <span>We re-arrange the relation (table) as below, to convert it to First Normal Form.</span><span>
+      </span><span>Each attribute must contain only a single value from its predefined domain.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="233" height="144" src="Database1.files/Database123421.png"><span>
+        </span></p> <b><span class="16">Second Normal Form</span></b><b> </b><span>Before we learn
+        about the second normal form, we need to understand the following:</span> <span style=" ">·</span><span>
+      </span><b><span>Prime attribute</span></b><span>: An attribute, which is a part of the prime-key, is known as a
+        prime attribute.</span> <span style=" ">·</span><span>
+      </span><b><span>Non-prime attribute</span></b><span>: An attribute, which is not a part of the prime-key, is said
+        to be a non-prime attribute.</span> <span>If we follow second normal form, then every non-prime
+        attribute should be fully functionally dependent on prime key attribute. That is, if X → A holds, then there
+        should not be any proper subset Y of X for which Y → A also holds true.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="432" height="164" src="Database1.files/Database123970.png"><span>
+        </span></p> <span>We see here in Student_Project relation that the prime key attributes are Stu_ID and Proj_ID.
+        According to the rule, non-key attributes, i.e., Stu_Name and Proj_Name must be dependent upon both and not on
+        any of the prime key attribute individually. But we find that Stu_Name can be identified by Stu_ID and
+        Proj_Name can be identified by Proj_ID independently. This is called </span><b><span>partial dependency</span></b><span>,
+        which is not allowed in Second Normal Form.</span><span> </span><span>We broke the relation in two as depicted
+        in the above picture. So there exists no partial dependency.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="364" height="219" src="Database1.files/Database124515.png"><span>
+        </span></p> <b><span>Third Normal Form</span></b><b> </b><span>For a relation to be in Third
+        Normal Form, it must be in Second Normal form and the following must satisfy:</span> <span style=" ">·</span><span>
+        No non-prime attribute is transitively dependent on prime key attribute.</span> <span style=" ">·</span><span>
+        For any non-trivial functional dependency, X → A, then either:</span> <span> - X is a superkey
+        or,</span> <span> - A is prime attribute</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="471" height="135" src="Database1.files/Database124840.png"><span>
+        </span></p> <span>We find that in the above Student_detail relation, Stu_ID is the key and only prime key
+        attribute. We find that City can be identified by Stu_ID as well as Zip itself. Neither Zip is a superkey nor
+        is City a prime attribute. Additionally, Stu_ID→ Zip → City, so there exists </span><b><span>transitive
+          dependency</span></b><span>. To bring this relation into third normal form, we break the relation into two
+        relations as follows:</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="324" height="186" src="Database1.files/Database125240.png"><span>
+        </span></p> <b><span>Boyce-Codd Normal Form</span></b><b> </b><span>Boyce-Codd Normal Form
+        (BCNF) is an extension of Third Normal Form on strict terms. BCNF states that-</span> <span style=" ">·</span><span>
+        For any non-trivial functional dependency, X → A, X must be a super-key. In the above image, Stu_ID is the
+        super-key in the relation Student_Detail and Zip is the super-key in the relation ZipCodes. So,</span> <span>Stu_ID
+        → Stu_Name, Zip and Zip → City Which confirms that both the relations are in BCNF.</span><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Join</span></b><b><span> </span></b></h1> <b><span>Join
+        </span></b><span>is a combination of a Cartesian product followed by a selection process. A Join operation
+        pairs two tuples from different relations, if and only if a given join condition is satisfied.</span> <b><span>Theta
+          (θ) Join</span></b><b> </b><span>Theta join combines tuples from different relations provided
+        they satisfy the theta condition. The join condition is denoted by the symbol </span><b><span>θ</span></b><span>.</span>
+      <b><span>Notation:</span></b><b> </b><span>R1
+      </span><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⋈</span><span>θ
+        R2</span> <span>R1 and R2 are relations having attributes (A1, A2, .., An) and (B1, B2,.. ,Bn)
+        such that the attributes don’t have anything in common, that is, R1 ∩ R2 = Φ. Theta join can use all kinds of
+        comparison operators.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="417" height="196" src="Database1.files/Database126245.png"><img
+          width="410" height="208" src="Database1.files/Database126246.png"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><b><span style=" ">Student_Detail
+            = </span></b><b><span style=" ">STUDENT
+          </span></b><span style=" ">⋈</span><b><span
+            style=" ">Student.Std
+            = Subject.Class </span></b><b><span style=" ">SUBJECT</span></b><b><span
+            style=" ">
+          </span></b></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="641" height="322" src="Database1.files/Database126313.png"><span>
+        </span></p> <b><span>Equijoin</span></b><b> </b><span>When Theta join uses only </span><b><span>equality
+        </span></b><span>comparison operator, it is said to be equijoin. The above example corresponds to equijoin.</span>
+      <b><span>Natural
+          Join (</span></b><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⋈</span><b><span>)</span></b><b>
+      </b><span>Natural
+        join does not use any comparison operator. It does not concatenate the way a Cartesian product does. We can
+        perform a Natural Join only if there is at least one common attribute that exists between two relations. In
+        addition, the attributes must have the same name and domain.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="585" height="631" src="Database1.files/Database126752.png"><span>
+        </span></p> <span>Natural join acts on those matching attributes where the values of attributes in both the
+        relations are same.</span><span> </span></p>
+      <h2><b><span>Outer Joins</span></b><b><span> </span></b></h2> <span>Theta Join, Equijoin, and Natural Join are
+        called inner joins. An inner join includes only those tuples with matching attributes and the rest are
+        discarded in the resulting relation. Therefore, we need to use outer joins to include all the tuples from the
+        participating relations in the resulting relation. There are three</span> <span>kinds of outer
+        joins: left outer join, right outer join, and full outer join</span><span> </span></p> <b><span>Left Outer
+          Join(R-</span></b><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⋈</span><b><span>
+          S)</span></b><b> </b><span>All the tuples from the Left relation, R, are included in the
+        resulting relation. If there are tuples in R without any matching tuple in the Right relation S, then the
+        S-attributes of the resulting relation are made NULL.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="420" height="305" src="Database1.files/Database127521.png"><img
+          width="428" height="255" src="Database1.files/Database127522.png"><span> </span></p> <b><span>Right Outer
+          Join: (R </span></b><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⋈</span><b><span>-S)</span></b><b>
+      </b><span>All
+        the tuples from the Right relation, S, are included in the resulting relation. If there are tuples in S without
+        any matching tuple in R, then the R-attributes of resulting relation are made NULL.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="548" height="239" src="Database1.files/Database127750.png"><span>
+        </span></p> <b><span>Full Outer Join: (R-</span></b><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⋈</span><b><span>-
+          S)</span></b><b> </b><span>All the tuples from both participating relations are included in
+        the resulting relation. If there are no matching tuples for both relations, their respective unmatched
+        attributes are made NULL.</span><span> </span></p> <span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="432" height="224" src="Database1.files/Database127973.png"><span>
+        </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>Database Storage</span></b><b><span> </span></b></h1>
+      <span>Databases are stored in file formats, which contain records. At physical level, the actual data is stored
+        in electromagnetic format on some device. These storage devices can be broadly categorized into three types:</span><span>
+      </span></p> <b><span>Primary Storage</span></b><span>: The memory storage that is directly accessible to the CPU
+        comes under this category. CPU's internal memory (registers), fast memory (cache), and main memory (RAM) are
+        directly accessible to the CPU, as they are all placed on the motherboard or CPU chipset. This storage is
+        typically very small, ultra-fast, and volatile. Primary storage requires continuous power supply in order to
+        maintain its state. In case of a power failure, all its data is lost.</span> <b><span>Secondary
+          Storage</span></b><span>: Secondary storage devices are used to store data for future use or as backup.
+        Secondary storage includes memory devices that are not a part of the CPU chipset or motherboard, for example,
+        magnetic disks, optical disks (DVD, CD, etc.), hard disks, flash drives, and magnetic tapes.</span><span>
+      </span><span>Hard disk drives are the most common secondary storage devices in present computer systems. These
+        are called magnetic disks because they use the concept of magnetization to store information. Hard disks
+        consist of metal disks coated with magnetizable material. These disks are placed vertically on a</span> <span>spindle.
+        A read/write head moves in between the disks and is used to magnetize or de-magnetize the spot under it. A
+        magnetized spot can be recognized as 0 (zero) or 1 (one). Hard disks are formatted in a well-defined order to
+        store data efficiently. A hard disk plate has many concentric circles on it, called </span><b><span>tracks</span></b><span>.
+        Every track is further divided into </span><b><span>sectors</span></b><span>. A sector on a hard disk typically
+        stores 512 bytes of data</span> <b><span>Tertiary Storage</span></b><span>: Tertiary storage is
+        used to store huge volumes of data. Since such storage devices are external to the computer system, they are
+        the slowest in speed. These storage devices are mostly used to take the back up of an entire system. Optical
+        disks and magnetic tapes are widely used as tertiary storage</span><span> </span></p>
+      <h2><b><span>RAID</span></b><b><span> </span></b></h2> <span>RAID stands for </span><b><span>R</span></b><span>edundant
+      </span><b><span>A</span></b><span>rray of </span><b><span>I</span></b><span>ndependent </span><b><span>D</span></b><span>isks,
+        which is a technology to connect multiple secondary storage devices and use them as a single storage media.</span>
+      <span>RAID
+        consists of an array of disks in which multiple disks are connected together to achieve different goals. RAID
+        levels define the use of disk arrays.</span><span> </span></p> <b><span>RAID 0</span></b><span>: In this level,
+        a striped array of disks is implemented. The data is broken down into blocks and the blocks are distributed
+        among disks. Each disk receives a block of data to write/read in parallel. It enhances the speed and
+        performance of the storage device. There is no parity and backup in Level 0.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="413" height="122" src="Database1.files/Database130644.png"><span>
+        </span></p> <b><span>RAID 1</span></b><span>: RAID 1 uses mirroring techniques. When data is sent to a RAID
+        controller, it sends a copy of data to all the disks in the array. RAID level 1 is also called </span><b><span>mirroring
+        </span></b><span>and provides 100% redundancy in case of a failure.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="375" height="136" src="Database1.files/Database130872.png"><span>
+        </span></p> <b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">RAID
+          2</span></b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">: RAID
+        2 records Error Correction Code using Hamming distance for its data, striped on different disks. Like level 0,
+        each data bit in a word is recorded on a separate disk and ECC codes of the data words are stored on different
+        set disks. Due to its complex structure and high cost, RAID 2 is not commercially available.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="456" height="144" src="Database1.files/Database131202.png"><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p> <b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">RAID
+          3</span></b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">: RAID
+        3 stripes the data onto multiple disks. The parity bit generated for data word is stored on a different disk.
+        This technique makes it to overcome single disk failures.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="458" height="131" src="Database1.files/Database131385.png"><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p> <b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">RAID
+          4</span></b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">: In
+        this level, an entire block of data is written onto data disks and then the parity is generated and stored on a
+        different disk. Note that level 3 uses byte-level striping, whereas level 4 uses block-level striping. Both
+        level 3 and level 4 require at least three disks to implement RAID.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="468" height="145" src="Database1.files/Database131686.png"><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"> </span></p> <b><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">RAID 5</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">: RAID 5 writes whole data
+        blocks onto different disks, but the parity bits generated for data block stripe are distributed among all the
+        data disks rather than storing them on a different dedicated disk.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="457" height="163" src="Database1.files/Database131899.png"><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"> </span></p> <b><span>RAID
+          6</span></b><span>: RAID 6 is an extension of level 5. In this level, two independent parities are generated
+        and stored in distributed fashion among multiple disks. Two parities provide additional fault tolerance. This
+        level requires at least four disk drives to implement RAID.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="518" height="282" src="Database1.files/Database132168.png"><span>
+        </span></p> <span> </span></p> <b><span class="16">File Operations</span></b><b> </b><span>Operations
+        on database files can be broadly classified into two categories:</span> <span style=" ">·</span><span>
+        Update Operations</span> <span style=" ">·</span><span>
+        Retrieval Operations</span> <span>Update operations change the data values by insertion,
+        deletion, or update. Retrieval operations, on the other hand, do not alter the data but retrieve them after
+        optional conditional filtering. In both types of operations, selection plays a significant role. Other than
+        creation and deletion of a file, there could be several operations, which can be done on files.</span> <span
+        style=" ">·</span><span>
+      </span><b><span>Open</span></b><span>: A file can be opened in one of the two modes, </span><b><span>read mode
+        </span></b><span>or </span><b><span>write mode</span></b><span>. In read mode, the operating system does not
+        allow anyone to alter data. In other words, data is read only. Files opened in read mode can be shared among
+        several entities. Write mode allows data modification. Files opened in write mode can be read but cannot be
+        shared.</span> <span style=" ">·</span><span>
+      </span><b><span>Locate</span></b><span>: Every file has a file pointer, which tells the current position where
+        the data is to be read or written. This pointer can be adjusted accordingly. Using find (seek) operation, it
+        can be moved forward or backward.</span> <span style=" ">·</span><span>
+      </span><b><span>Read</span></b><span>: By default, when files are opened in read mode, the file pointer points to
+        the beginning of the file. There are options where the user can tell the operating system where to locate the
+        file pointer at the time of opening a file. The very next data to the file pointer is read.</span> <b> </b><span
+        style=" ">·</span><span>
+      </span><b><span>Write</span></b><span>: User can select to open a file in write mode, which enables them to edit
+        its contents. It can be deletion, insertion, or modification. The file pointer can be located at the time of
+        opening or can be dynamically changed if the operating system allows to do so.</span> <span style=" ">·</span><span>
+      </span><b><span>Close</span></b><span>: This is the most important operation from the operating system’s point of
+        view. When a request to close a file is generated, the operating system</span> <span>- removes
+        all the locks (if in shared mode),</span> <span>- saves the data (if altered) to the secondary
+        storage media, and</span> <span>- releases all the buffers and file handlers associated with
+        the file.</span> <span>The organization of data inside a file plays a major role here. The
+        process to locate the file pointer to a desired record inside a file various based on whether the records are
+        arranged sequentially or clustered.</span><span> </span></p>
+      <h1><b><span>Indexing</span></b><b><span> </span></b></h1> <span>Indexing is a data structure technique to
+        efficiently retrieve records from the database files based on some attributes on which the indexing has been
+        done. Indexing in database systems is similar to what we see in books. Indexing is defined based on its
+        indexing attributes. Indexing can be of the</span> <span>following types:</span> <span style=" ">·</span><span>
+      </span><b><span>Primary Index</span></b><span>: Primary index is defined on an ordered data file. The data file
+        is ordered on a </span><b><span>key field</span></b><span>. The key field is generally the primary key of the
+        relation.</span> <span style=" ">·</span><span>
+      </span><b><span>Secondary Index</span></b><span>: Secondary index may be generated from a field which is a
+        candidate key and has a unique value in every record, or a non-key with duplicate values.</span> <span style=" ">·</span><span>
+      </span><b><span>Clustering Index</span></b><span>: Clustering index is defined on an ordered data file. The data
+        file is ordered on a non-key field.</span><span> </span></p> <span>Ordered Indexing is of two types:</span>
+      <span style=" ">·</span><span>
+        Dense Index</span> <span style=" ">·</span><span>
+        Sparse Index</span><span> </span></p> <b><span class="16">Dense Index</span></b><b> </b><span>In
+        dense index, there is an index record for every search key value in the database. This makes searching faster
+        but requires more space to store index records itself. Index records contain search key value and a pointer to
+        the actual record on the disk</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="459" height="149" src="Database1.files/Database135458.png"><span>
+        </span></p>
+      <h2><b><span>Sparse Index</span></b><b><span> </span></b></h2> <span>In sparse index, index records are not
+        created for every search key. An index record here contains a search key and an actual pointer to the data on
+        the disk. To search a record, we first proceed by index record and reach at the actual location of the data. If
+        the data we are looking for is not where we directly reach by following the index, then the system starts
+        sequential search until the desired</span> <span>data is found.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="633" height="211" src="Database1.files/Database135891.png"><span>
+        </span></p>
+      <h2><b><span>Multilevel Index</span></b><b><span> </span></b></h2> <span>Index records comprise search-key values
+        and data pointers. Multilevel index is stored on the disk along with the actual database files. As the size of
+        the database grows, so does the size of the indices. There is an immense need to keep the index records in the
+        main memory so as to speed up the search operations. If single-level index is used, then a large size index
+        cannot be kept in memory which leads to multiple disk accesses.</span><span> </span><span>Multi-level Index
+        helps in breaking down the index into several smaller indices in</span> <span>order to make the
+        outermost level so small that it can be saved in a single disk block, which can easily be accommodated anywhere
+        in the main memory.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="477" height="364" src="Database1.files/Database136578.png"><span>
+        </span></p>
+      <h2><b><span>B+ Tree</span></b><b><span> </span></b></h2> <span>A B+ tree is a balanced binary search tree that
+        follows a multi-level index format. The leaf nodes of a B+ tree denote actual data pointers. B+ tree ensures
+        that all leaf nodes remain at the same height, thus balanced. Additionally, the leaf nodes are linked using a
+        link list; therefore, a B+ tree can support random access as well as sequential access.</span> <b><span>Structure
+          of B+ Tree</span></b><b> </b><span>every leaf node is at equal distance from the root node. A
+        B+ tree is of the order </span><b><span>n </span></b><span>where </span><b><span>n </span></b><span>is fixed
+        for every B+ tree.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="541" height="191" src="Database1.files/Database137085.png"><span>
+        </span></p> <b><span>Internal nodes:</span></b><b> </b><span style=" ">·</span><span>
+        Internal (non-leaf) nodes contain at least </span><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⌈</span><span>n/2</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⌉</span><span>
+        pointers, except the root node.</span> <span style=" ">·</span><span>
+        At most, an internal node can contain </span><b><span>n </span></b><span>pointers.</span> <b><span>Leaf
+          nodes:</span></b><b> </b><span style=" ">·</span><span>
+        Leaf nodes contain at least </span><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⌈</span><span>n/2</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⌉</span><span>
+        record pointers and </span><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⌈</span><span>n/2</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';font-size:14.0000pt;">⌉</span><span>
+        key values.</span> <span style=" ">·</span><span>
+        At most, a leaf node can contain </span><b><span>n </span></b><span>record pointers and </span><b><span>n
+        </span></b><span>key values.</span> <span style=" ">·</span><span>
+        Every leaf node contains one block pointer </span><b><span>P </span></b><span>to point to next leaf node</span>
+      <span>and
+        forms a linked list.</span> <b><span>B+Tree Insertion</span></b><b> </b><span style=" ">·</span><span>
+        B+ trees are filled from bottom and each entry is done at the leaf node.</span> <span style=" ">·</span><span>
+        If a leaf node overflows:</span><span> </span></p>
+      <p class="NewStyle28" style="margin-left:54.0000pt;text-indent:-18.0000pt;mso-list:l10 level1 lfo2;">
+        <!--[if !supportLists]--><span style="font-family:Calibri;font-size:14.0000pt;"><span style=" ">-<span>
+            </span></span></span>
+        <!--[endif]--><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">Split node into two
+          parts</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p>
+      <p class="NewStyle28" style="margin-left:54.0000pt;text-indent:-18.0000pt;mso-list:l10 level1 lfo2;">
+        <!--[if !supportLists]--><span style="font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"><span style=" ">-<span>
+            </span></span></span>
+        <!--[endif]--><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">Partition
+          at </span><b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">i
+            = </span></b><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';color:rgb(0,0,0);font-size:14.0000pt;">⌊</span><b><span
+            style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">(m+1)</span></b><b><span
+            style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">/2</span></b><span
+          style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';color:rgb(0,0,0);font-size:14.0000pt;">⌋</span><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p>
+      <p class="NewStyle28" style="margin-left:54.0000pt;text-indent:-18.0000pt;mso-list:l10 level1 lfo2;">
+        <!--[if !supportLists]--><span style="font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"><span style=" ">-<span>
+            </span></span></span>
+        <!--[endif]--><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">First
+        </span><b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">i
+          </span></b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">entries
+          are stored in one node.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">
+        </span></p>
+      <p class="NewStyle28" style="margin-left:54.0000pt;text-indent:-18.0000pt;mso-list:l10 level1 lfo2;">
+        <!--[if !supportLists]--><span style="font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"><span style=" ">-<span>
+            </span></span></span>
+        <!--[endif]--><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">Rest
+          of the entries (i+1 onwards) are moved to a new node.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">
+        </span></p>
+      <p class="NewStyle28" style="margin-left:54.0000pt;text-indent:-18.0000pt;mso-list:l10 level1 lfo2;">
+        <!--[if !supportLists]--><span style="font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;"><span
+            style=" ">-<span> </span></span></span>
+        <!--[endif]--><b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">i</span></b><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">th </span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">key
+          is duplicated at the parent of the leaf</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">
+        </span></p>
+      <p class="MsoNormal" style="margin-left:36.0000pt;"><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">If
+          a non-leaf node overflows:</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"><br></span><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">- Split node into two
+          parts.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"><br></span><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">-Partition the node at
+        </span><b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">i
+            = </span></b><span style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';color:rgb(0,0,0);font-size:14.0000pt;">⌈</span><b><span
+            style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">(m+1)</span></b><b><span
+            style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">/2</span></b><span
+          style="mso-spacerun:'yes';font-family:Calibri;mso-hansi-font-family:'Cambria Math';mso-bidi-font-family:'Cambria Math';color:rgb(0,0,0);font-size:14.0000pt;">⌉</span><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"><br></span><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">-Entries up to </span><b><span
+            style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-weight:bold;font-size:14.0000pt;">i
+          </span></b><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">are
+          kept in one node.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;"><br></span><span
+          style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">-Rest of the entries are
+          moved to a new node.</span><span style="mso-spacerun:'yes';font-family:Calibri;color:rgb(0,0,0);font-size:14.0000pt;">
+        </span></p> <b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">B+Tree
+          Deletion</span></b><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;"><br></span></b><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> B+ tree entries are deleted at the leaf
+        nodes.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> The target entry is searched and deleted.</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">o
+        If it is an internal node, delete and replace with the entry from the left</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">position.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> After deletion, underflow is tested,</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">o
+        If underflow occurs, distribute the entries from the nodes left to it.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> If distribution is not possible from left,
+        then</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">o
+        Distribute the entries from the nodes right to it.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> If distribution is not possible from left
+        or from right, then</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">o Merge the node with left and right to it.</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p>
+      <h1><b><span>Hashing</span></b><b><span> </span></b></h1> <span>Hashing is an effective technique to calculate
+        the direct location of a data record on the disk without using index structure. Hashing uses hash functions
+        with search keys as parameters to generate the</span> <span>address of a data record.</span><span>
+      </span></p> <b><span>Hash Organization</span></b><b> </b><span style=" ">·</span><span>
+      </span><b><span>Bucket</span></b><span>: A hash file stores data in bucket format. Bucket is considered a unit of
+        storage. A bucket typically stores one complete disk block, which in turn can store one or more records.</span>
+      <span style=" ">·</span><span>
+      </span><b><span>Hash Function</span></b><span>: A hash function, </span><b><span>h</span></b><span>, is a mapping
+        function that maps all the set of search-keys </span><b><span>K </span></b><span>to the address where actual
+        records are placed. It is a function from search keys to bucket addresses.</span> <b><span class="16">Static
+          Hashing</span></b><b> </b><span>In static hashing, when a search-key value
+        is provided, the hash function always computes the same address. For example, if mod-4 hash function is used,
+        then it shall generate only 5 values. The output address shall always be same for that function. The number of
+        buckets provided remains unchanged at all times.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="520" height="347" src="Database1.files/Database139486.png"><span>
+        </span></p> <b><span>Operation:</span></b><b> </b><span style=" ">·</span><span>
+      </span><b><span>Insertion</span></b><span>: When a record is required to be entered using static hash, the hash
+        function </span><b><span>h </span></b><span>computes the bucket address for search key </span><b><span>K</span></b><span>,
+        where the record will be stored.</span> <span>Bucket address = h(K)</span> <span style=" ">·</span><span>
+      </span><b><span>Search</span></b><span>: When a record needs to be retrieved, the same hash function can be used
+        to retrieve the address of the bucket where the data is stored.</span> <span style=" ">·</span><span>
+      </span><b><span>Delete</span></b><span>: This is simply a search followed by a deletion operation.</span> <b><span>Bucket
+          Overflow</span></b><b> </b><span>The condition of bucket-overflow is known as </span><b><span>collision</span></b><span>.
+        This is a fatal state for any static hash function. In this case, overflow chaining can be used.</span> <span
+        style=" ">·</span><span>
+      </span><b><span>Overflow Chaining</span></b><span>: When buckets are full, a new bucket is allocated for the same
+        hash result and is linked after the previous one. This mechanism is called </span><b><span>Closed Hashing</span></b><span>.</span><span>
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="552" height="285" src="Database1.files/Database140249.png"><span>
+        </span></p> <b><span>Linear Probing</span></b><span>: When a hash function generates an address at which data
+        is already stored, the next free bucket is allocated to it. This mechanism is called </span><b><span>Open
+          Hashing</span></b><span>.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="510" height="382" src="Database1.files/Database140422.png"><span>
+        </span></p> <b><span>Dynamic Hashing</span></b><b> </b><span>The problem with static hashing is
+        that it does not expand or shrink dynamically as the size of the database grows or shrinks. Dynamic hashing
+        provides a mechanism in which data buckets are added and removed dynamically and on demand. Dynamic hashing is
+        also known as </span><b><span>extended hashing</span></b><span>. Hash function, in dynamic hashing, is made to
+        produce a large number of values and only a few are used initially.</span><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="553" height="417" src="Database1.files/Database140840.png"><span>
+        </span></p> <b><span>Organization</span></b><b> </b><span>The prefix of an entire hash value is
+        taken as a hash index. Only a portion of the hash value is used for computing bucket addresses. Every hash
+        index has a depth value to signify how many bits are used for computing a hash function. These bits can address
+        2n buckets. When all these bits are consumed — that is, when all the buckets are full — then the depth value is
+        increased linearly and twice the buckets are allocated.</span> <b><span>Operation</span></b><b> </b><span style=" ">·</span><span>
+      </span><b><span>Querying</span></b><span>: Look at the depth value of the hash index and use those bits</span>
+      <span>to
+        compute the bucket address.</span> <span style=" ">·</span><span>
+      </span><b><span>Update</span></b><span>: Perform a query as above and update the data.</span> <span style=" ">·</span><span>
+      </span><b><span>Deletion</span></b><span>: Perform a query to locate the desired data and delete the</span> <span>same.</span>
+      <span style=" ">·</span><span>
+      </span><b><span>Insertion</span></b><span>: Compute the address of the bucket.</span> <span>o If
+        the bucket is already full,</span> <span style="mso-spacerun:'yes';font-family:Wingdings;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:14.0000pt;">§</span><span>
+        Add more buckets.</span> <span style="mso-spacerun:'yes';font-family:Wingdings;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:14.0000pt;">§</span><span>
+        Add additional bits to the hash value.</span> <span style="mso-spacerun:'yes';font-family:Wingdings;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:14.0000pt;">§</span><span>
+        Re-compute the hash function.</span> <span>o Else,</span> <span style="mso-spacerun:'yes';font-family:Wingdings;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:14.0000pt;">§</span><span>
+        Add data to the bucket,</span> <span>o If all the buckets are full, perform the remedies of
+        static hashing.</span> <span>Hashing is not favorable when the data is organized in some
+        ordering and the queries require a range of data. When data is discrete and random, hash performs the best.
+        Hashing algorithms have high complexity than indexing. All hash operations are done in constant time</span><span>
+      </span></p> <span> </span></p> <span> </span></p>
+      <h1><b><span>Transaction</span></b><b><span> </span></b></h1> <span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">A
+        transaction can be defined as a group of tasks. A single task is the minimum processing unit which cannot be
+        divided further. Let’s take an example of a simple transaction. Suppose a bank employee transfers Rs 500 from
+        A's account to B's account. This very simple and small transaction involves several low-level tasks.</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p> <b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">A’s
+          Account</span></b><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;"><br></span></b><span>Open_Account(A)</span>
+      <span>Old_Balance
+        = A.balance</span> <span>New_Balance = Old_Balance - 500</span> <span>A.balance
+        = New_Balance</span> <span>Close_Account(A)</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><b><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">B’s Account</span></b><b><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;"><br></span></b><span>Open_Account(B)</span>
+      <span>Old_Balance
+        = B.balance</span> <span>New_Balance = Old_Balance + 500</span> <span>B.balance
+        = New_Balance</span> <span>Close_Account(B)</span><span> </span></p> <b><span class="16">ACID
+          Properties</span></b><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;"><br></span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">A transaction is a very small unit of a
+        program and it may contain several lowlevel tasks. A transaction in a database system must maintain </span><b><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">A</span></b><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">tomicity,
+      </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">C</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">onsistency, </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">I</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">solation, and </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">D</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">urability — commonly known as ACID
+        properties — in order to ensure accuracy, completeness, and data integrity.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Atomicity</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: This property states that a transaction
+        must be treated as an atomic unit, that is, either all of its operations are executed or none. There must be no
+        state in a database where a transaction is left partially completed. States should be defined either before the
+        execution of the transaction or after the execution/abortion/failure of the transaction.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Consistency</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: The database must remain in a consistent
+        state after any transaction. No transaction should have any adverse effect on the data residing in the
+        database. If the database was in a consistent state before the execution of a transaction, it must remain
+        consistent after the execution of the transaction as well.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Durability</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: The database should be durable enough to
+        hold all its latest updates even if the system fails or restarts. If a transaction updates a chunk of data in a
+        database and commits, then the database will hold the modified data. If a transaction commits but the system
+        fails before the data could be written on to the disk, then that data will be updated once the system springs
+        back into action.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Isolation</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: In a database system where more than one
+        transaction are being executed simultaneously and in parallel, the property of isolation states that all the
+        transactions will be carried out and executed as if it is the only transaction in the system. No transaction
+        will affect the existence of any other transaction.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">
+      </span></p> <b><span class="16">Serializability</span></b><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;"><br></span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">When multiple transactions are being
+        executed by the operating system in a multiprogramming environment, there are possibilities that instructions
+        of one transaction are interleaved with some other transaction.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Schedule</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: A chronological execution sequence of a
+        transaction is called a schedule. A schedule can have many transactions in it, each comprising of a number of
+        instructions/tasks.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Symbol;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;font-size:14.0000pt;">·</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span><b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Serial
+          Schedule</span></b><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: It is a
+        schedule in which transactions are aligned in such a way that one transaction is executed first. When the first
+        transaction completes its cycle, then the next transaction is executed.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">Transactions are ordered one after the
+        other. This type of schedule is called a serial schedule, as transactions are executed in a serial manner. In a
+        multi-transaction environment, serial schedules are considered as a benchmark. The execution sequence of an
+        instruction in a transaction cannot be</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">changed, but two transactions can have
+        their instructions executed in a random fashion. This execution does no harm if two transactions are mutually
+        independent and working on different segments of data; but in case these two transactions are working on the
+        same data, then the results may vary. This ever-varying result may bring the database to an inconsistent state.
+        To resolve this problem, we allow parallel execution of a transaction schedule, if its transactions are either
+        serializable or have some equivalence relation among them.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">
+      </span></p> <span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><b><span class="16">States
+          of Transactions</span></b><b><span class="16"> </span></b></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="504" height="271" src="Database1.files/Database145867.png"><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p> <span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">A
+        transaction in a database can be in one of the following states:</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">
+      </span></p> <b><span style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Active</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: In this state, the transaction is being
+        executed. This is the initial state of every transaction.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><b><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Partially Committed</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: When a transaction executes its final
+        operation, it is said to be in a partially committed state.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><b><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Failed</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: A transaction is said to be in a failed
+        state if any of the checks made by the database recovery system fails. A failed transaction can no longer
+        proceed further.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><b><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Aborted</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: If any of the checks fails and the
+        transaction has reached a failed state, then the recovery manager rolls back all its write operations on the
+        database to bring the database back to its original state where it was prior to the execution of the
+        transaction. Transactions in this state are called aborted. The database recovery module can select one of the
+        two operations after a transaction aborts:</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">o Re-start the transaction</span><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">o
+        Kill the transaction</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"><br></span><b><span
+          style="mso-spacerun:'yes';font-family:Calibri;font-weight:bold;font-size:14.0000pt;">Committed</span></b><span
+        style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;">: If a transaction executes all its
+        operations successfully, it is said to be committed. All its effects are now permanently established on the
+        database system.</span><span style="mso-spacerun:'yes';font-family:Calibri;font-size:14.0000pt;"> </span></p>
+      <h1><b><span>Concurrency Control</span></b><b><span> </span></b></h1> <span>In a multiprogramming environment
+        where multiple transactions can be executed simultaneously, it is highly important to control the concurrency
+        of transactions. We have concurrency control protocols to ensure atomicity, isolation, and serializability of
+        concurrent transactions. Concurrency control protocols can be broadly divided into two categories:</span> <span
+        style=" ">·</span><span>
+        Lock-based protocols</span> <span style=" ">·</span><span>
+        Timestamp-based protocols</span><span> </span></p> <b><span>Lock-based Protocols</span></b><b> </b><span>Database
+        systems equipped with lock-based protocols use a mechanism by which any transaction cannot read or write data
+        until it acquires an appropriate lock on it. Locks are of two kinds:</span> <span style=" ">·</span><span>
+      </span><b><span>Binary Locks </span></b><span>A lock on a data item can be in two states; it is either locked or
+        unlocked.</span> <span style=" ">·</span><span>
+      </span><b><span>Shared/exclusive Locks </span></b><span>this type of locking mechanism differentiates the locks
+        based on their uses. If a lock is acquired on a data item toperform a write operation, it is an exclusive lock.
+        Allowing more than one transaction to write on the same data item would lead the database into an inconsistent
+        state. Read locks are shared because no data value is being changed.</span><span> </span></p>
+      <h1><b><span>Deadlock</span></b><b><span> </span></b></h1> <span>In a multi-process system, deadlock is an
+        unwanted situation that arises in a shared resource environment, where a process indefinitely waits for a
+        resource that is held by another process.</span> <span>For example, assume a set of
+        transactions {T0, T1, T2, ...,Tn}. T0 needs a resource X to complete its task. Resource X is held by T1, and T1
+        is waiting for a resource Y, which is held by T2. T2 is waiting for resource Z, which is held by T0.</span>
+      <span>Thus,
+        all the processes wait for each other to release resources. In this situation, none of the processes can finish
+        their task. This situation is known as a deadlock.</span> <span>Deadlocks are not healthy for a
+        system. In case a system is stuck in a deadlock, the transactions involved in the deadlock are either rolled
+        back or restarted.</span> <b><span> </span></b></p> <b><span>Deadlock Prevention</span></b><b> </b><span>To
+        prevent any deadlock situation in the system, the DBMS aggressively inspects all the operations, where
+        transactions are about to execute. The DBMS inspects the operations and analyzes if they can create a deadlock
+        situation. If it finds that a deadlock situation might occur, then that transaction is never allowed to be
+        executed.</span> <span>There are deadlock prevention schemes that use timestamp ordering
+        mechanism of transactions in order to predetermine a deadlock situation.</span> <b><span>Wait-Die
+          Scheme</span></b><b> </b><span>In this scheme, if a transaction requests to lock a resource
+        (data item), which is already held with a conflicting lock by another transaction, then one of the two
+        possibilities may occur:</span> <span style="mso-spacerun:'yes';font-family:Wingdings;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:14.0000pt;">§</span><span>
+        If TS(Ti) &lt; TS(Tj) — that is Ti, which is requesting a conflicting lock, is older than Tj — then Ti is
+        allowed to wait until the data-item is available.</span> <span style="mso-spacerun:'yes';font-family:Wingdings;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:'Times New Roman';font-size:14.0000pt;">§</span><span>
+        If TS(Ti) &gt; TS(tj) — that is Ti is younger than Tj — then Ti dies. Ti is restarted later with a random delay
+        but with the same timestamp. This scheme allows the older transaction to wait but kills the younger one.</span>
+      <b><span>Wound-Wait
+          Scheme</span></b><b> </b><span>In this scheme, if a transaction requests to lock a resource
+        (data item), which is already held with conflicting lock by another transaction, one of the two possibilities
+        may occur:</span><span> </span></p> <span>- If TS(Ti) &lt; TS(Tj), then Ti forces Tj to be rolled back — that
+        is Ti wounds Tj. Tj is restarted later with a random delay but with the same timestamp.</span> <span>-
+        If TS(Ti) &gt; TS(Tj), then Ti is forced to wait until the resource is available. This scheme allows the
+        younger transaction to wait; but when an older transaction requests an item held by a younger one, the older
+        transaction forces the younger one to abort and release the item. In both the cases, the transaction that
+        enters the system at a later stage is aborted.</span> <b><span>Deadlock Avoidance</span></b><b> </b><span>Aborting
+        a transaction is not always a practical approach. Instead, deadlockavoidance mechanisms can be used to detect
+        any deadlock situation in advance. Methods like "wait-for graph" are available but they are suitable for only
+        thosesystems where transactions are lightweight having fewer instances of resource.In a bulky system, deadlock
+        prevention techniques may work well.</span> <b><span>Wait-for Graph</span></b><b> </b><span>This
+        is a simple method available to track if any deadlock situation may arise. For each transaction entering into
+        the system, a node is created. When a transaction Ti requests for a lock on an item, say X, which is held by
+        some other transaction Tj, a directed edge is created from Ti to Tj. If Tj releases item X, the edge between
+        them is dropped and Ti locks the data item. The system maintains this wait-for graph for every transaction
+        waiting for some data items held by others. The system keeps checking if there's any cycle in the graph.</span><span>
+      </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><img width="400" height="318" src="Database1.files/Database151574.png"><span>
+        </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <p class="MsoNormal" align="center" style="text-align:center;"><span> </span></p>
+      <h1 align="center" style="text-align:center;"><b><span>SQL Query Set</span></b><b><span> </span></b></h1> <span>Department(D_ID,D_NAME)</span><span>
+      </span></p> <span>Emplyee(E_ID, E_NAME, DEPT_ID, SALARY)</span><span> </span></p> <span>Product(P_ID,
+        P_NAME,PROFIT)</span><span> </span></p> <span>P1: A column has negative values and some positive values. It is
+        required to the sum of the values.</span><span> </span></p> <span>SELECT SUM(CASE WHEN number&lt;0 THEN 0 ELSE
+        number END) sum_number FROM numbers</span><span> </span></p> <span>P2: Show employee count of department.</span><span>
+      </span></p> <span>SELECT COUNT(E_ID) FROM Employee GROUP BY DEPT_ID</span><span> </span></p> <span> </span></p>
     </div>
   </article>
 
