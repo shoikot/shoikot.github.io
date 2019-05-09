@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Poetry in coding - Programming Can be Fun</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="../../vendor/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet" type="text/css">
+    <link
+      href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
+      rel='stylesheet' type='text/css'>
+    <link
+      href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+      rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="Use HotswapAgent with NetBeans to Speed
+      up Development" />
+    <meta property="og:description" content="Page content description" />
+    <meta property="og:url"
+      content="https://shoikot.github.io/learning_paths/java_developement/java.html"
+      />
+    <meta property="og:image" content="https://shoikot.github.io/img/java.jpg"
+      />
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="../../index.html"> Poetry in coding</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+          data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false"
+          aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Java Developement</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../database_concepts/database.html">Database</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../quran.html">Listen Quran</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image:
+      url('../../img/java.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Understanding Java8 Best Practices</h1>
+              <span class="meta">Posted by
+                <a href="#">Aminul Karim</a>
+                on May 8, 2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="content-html" dz-code-container="" ng-non-bindable=""
+              itemprop="text">
+              <h2 pid="245"><strong>Functional Interface</strong></h2>
+              <p pid="122">A functional interface is an interface with only one
+                abstract method. This means that the interface implementation
+                will only represent one behavior. Examples of a functional
+                interface in Java are:</p>
+              <ul>
+                <li><p pid="124">java.lang.Runnable</p></li>
+                <li><p pid="124">java.util.Comparator</p></li>
+                <li><p pid="126">java.util.concurrent.Callable</p></li>
+                <li><p pid="127">java.io.FileFilter</p></li>
+              </ul>
+              <p pid="128">An important point to remember is that the functional
+                interface can have a number of default methods but only one
+                abstract method.</p>
+              <h2 pid="130"><strong>Lambda Expressions</strong></h2>
+              <p pid="133">Lambda expressions are introduced in Java 8, and they
+                can represent the instance of a functional interface.&nbsp; A lambda expression is an inline implementation of a functional interface, eliminating the need of an anonymous class. A lambda expression has three parts: </p>
+              <p>
+                A lambda expression has three parts:
+<pre>
+parameters [zero or more]
+    ->
+code block [if more than one statement, enclosed in curly braces { . . . } ] 
+[may contain free variables; values for these supplied by local or instance vbles]
+</pre>
+              </p>   
+              <p pid="134">To explain the above statement, we are defining a
+                functional interface named "SquareRoot." It has only one
+                abstract method, "findSquareRoot."&nbsp;<code>@FunctionalInterface</code><span
+                  id="_tmp_pre_3">&nbsp;</span>annotations are used to declare
+                an interface as a functional interface.</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-meta">@FunctionalInterface</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="3"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">public</span> <span class="cm-keyword">interface</span> <span class="cm-def">SquareRoot</span> {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="4"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="5"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">abstract</span> <span class="cm-type">double</span> <span class="cm-variable">findSquareRoot</span>(<span class="cm-type">int</span> <span class="cm-variable">n</span>);</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="6"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="7"></div></div><pre><span style="padding-right: 29px;">}</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 139px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="247"><br></p>
+              <p pid="141">Before Java 8, we could do the following to use the
+                SquareRoot interface:</p>
+              <ol>
+                <li><p pid="145">Create an implementation class called&nbsp;<code>SquareRootImpl</code>&nbsp;and&nbsp;implement
+                    the&nbsp;<code>&nbsp;findSquareRoot</code>&nbsp; method and
+                    use the instance of&nbsp;<code>SquareRootImpl</code>&nbsp;
+                    to find the square root of input values.&nbsp;</p></li>
+              </ol>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">class</span> <span class="cm-def">SquareRootImpl</span> <span class="cm-keyword">implements</span> <span class="cm-variable">SquareRoot</span> {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="3"></div></div><pre><span style="padding-right: 29px;"><span class="cm-meta">@Override</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="4"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">public</span> <span class="cm-type">double</span> <span class="cm-variable">findSquareRoot</span>(<span class="cm-type">int</span> <span class="cm-variable">n</span>) {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="5"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">return</span> <span class="cm-variable">Math</span>.<span class="cm-variable">sqrt</span>(<span class="cm-variable">n</span>);</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="6"></div></div><pre><span style="padding-right: 29px;">}</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="7"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="8"></div></div><pre><span style="padding-right: 29px;">}</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 157px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="248"><br></p>
+              <p pid="154">Usage of the above implementation can be done below:</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">SquareRootImpl</span> <span class="cm-variable">squareRootImpl</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">SquareRootImpl</span>();</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">squareRootImpl</span>.<span class="cm-variable">findSquareRoot</span>(<span class="cm-variable">in</span>);</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 45px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="261">&nbsp;</p>
+              <p pid="161">2. Create&nbsp;an anonymous implementation of the
+                SquareRoot interface and use it to find the square root value.</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">SquareRoot</span> <span class="cm-variable">squareRoot</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">SquareRoot</span>() {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="3"></div></div><pre><span style="padding-right: 29px;"><span class="cm-meta">@Override</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="4"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">public</span> <span class="cm-type">double</span> <span class="cm-variable">findSquareRoot</span>(<span class="cm-type">int</span> <span class="cm-variable">n</span>) {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="5"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">return</span> <span class="cm-variable">Math</span>.<span class="cm-variable">sqrt</span>(<span class="cm-variable">n</span>);</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="6"></div></div><pre><span style="padding-right: 29px;">}</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="7"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="8"></div></div><pre><span style="padding-right: 29px;">};</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 157px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="249"><br></p>
+              <p pid="250">Here is the usage:</p>
+              <div class="CodeMirror cm-s-default">
+                <div class="CodeMirror-scroll">
+                  <div class="CodeMirror-sizer" style="margin-left: 29px;
+                    margin-bottom: 0px; border-right-width: 30px; min-width:
+                    319px; min-height: 26px; padding-right: 0px; padding-bottom:
+                    0px;"><div style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">squareRoot</span>.<span class="cm-variable">findSquareRoot</span>(<span class="cm-variable">in</span>);</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 27px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="262">&nbsp;</p>
+              <p pid="174">The above approaches are very verbose and have a
+                boilerplate code. The same can be done using the lambda
+                expression in fewer lines of code</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">SquareRoot</span> <span class="cm-variable">squareRoot</span> <span class="cm-operator">=</span> (<span class="cm-variable">n</span>) <span class="cm-operator">-&gt;</span> (<span class="cm-variable">Math</span>.<span class="cm-variable">sqrt</span>(<span class="cm-variable">n</span>));</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">squareRoot</span>.<span class="cm-variable">findSquareRoot</span>(<span class="cm-variable">in</span>);</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 45px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="269"><br></p>
+              <p pid="176">&nbsp;<code>squareRoot</code><span id="_tmp_pre_1">&nbsp;</span>&nbsp;is
+                instance of the functional interface "SquareRoot." The interface
+                has only one abstract method and the&nbsp; &nbsp;<code>(n) -&gt;
+                  (Math.sqrt(n)) </code><span id="_tmp_pre_2">&nbsp;</span>expression
+                provides the implementation of the abstract method&nbsp;&nbsp;<code>findSquareRoot</code><span
+                  id="_tmp_pre_3">&nbsp;.</span></p>
+              <h2 pid="253"><strong><strong>Explained:&nbsp;<code>&nbsp;(n)
+                      -&gt; (Math.sqrt(n))</code><span id="_tmp_pre_4">&nbsp;</span></strong>&nbsp;&nbsp;</strong></h2>
+              <p pid="181">In this example method, &nbsp;<code>findSquareRoot</code><span
+                  id="_tmp_pre_5">&nbsp;</span>expects one input of type double.
+                &nbsp;&nbsp;</p>
+              <p pid="183">&nbsp;The left side of the expression is (n),
+                &nbsp;"n" represents the value expected by the method&nbsp;<code>
+                  findSquareRoot</code>&nbsp;.</p>
+              <p pid="186">The right side of the expression followed by
+                the&nbsp;<code>-&gt;</code>&nbsp;&nbsp; sign is&nbsp;<code>(Math.sqrt(n))</code>&nbsp;.&nbsp;</p>
+              <p pid="187">This is the actual method code, using the&nbsp;<code>Math.sqrt</code>&nbsp;
+                function to find the&nbsp;<code>squareRoot</code>.&nbsp;</p>
+              <p pid="207">In the example of the abstract function,&nbsp;<code>findSquareRoot</code><span
+                  id="_tmp_pre_10">&nbsp;</span>accepts one input of the
+                type&nbsp;<code>int</code><span id="_tmp_pre_11">&nbsp;</span>
+                and returns value of type double. &nbsp; &nbsp;</p>
+              <p pid="207"><strong>Abstract method</strong>:
+                &nbsp;abstract&nbsp;double&nbsp;<code>findSquareRoot(int&nbsp;n)</code><span
+                  id="_tmp_pre_12">&nbsp;</span> ;</p>
+              <p pid="219"><strong>Lambda expression</strong>:&nbsp;<code>SquareRoot&nbsp;squareRoot&nbsp;=&nbsp;&nbsp;(n)
+                  -&gt; (Math.sqrt(n))</code><span id="_tmp_pre_13">&nbsp;</span>&nbsp;
+                &nbsp; &nbsp;</p>
+              <p pid="220">"n" is the input and&nbsp;<code>Math.srqrt(n)</code>&nbsp;is&nbsp;the
+                output. The input and output type should match the&nbsp;abstract
+                method in the interface.</p>
+              <h2 pid="190"><strong>Block Lambda Expression</strong></h2>
+              <p pid="191">Lambda expressions can have multiple lines; the
+                following is the syntax:&nbsp;</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">SquareRoot</span> <span class="cm-variable">squareRoot</span> <span class="cm-operator">=</span> (<span class="cm-variable">n</span>) <span class="cm-operator">-&gt;</span> {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"><span class="cm-type">double</span> <span class="cm-variable">result</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-variable">sqrt</span>(<span class="cm-variable">n</span>);</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="3"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">return</span> <span class="cm-variable">result</span>;</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="4"></div></div><pre><span style="padding-right: 29px;">};</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 83px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="254"><br></p>
+              <p pid="196">Here is an example of the usage:</p>
+              <p pid="199"><span id="_tmp_pre_9"></span></p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"> <span class="cm-variable">squareRoot</span>.<span class="cm-variable">findSquareRoot</span>(<span class="cm-variable">in</span>);</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 27px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="278"><br></p>
+              <p pid="273"><span id="_tmp_pre_9"></span></p>
+              <h2 pid="199"><strong>Lambda Expressions as an Argument to
+                  Function</strong></h2>
+              <p pid="204">You can pass the &nbsp;<code>squareRoot</code>&nbsp;as
+                input to any function. This is done the way we could pass an
+                implementation instance of an interface in earlier versions of
+                Java.</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-type">double</span> <span class="cm-def">squareRootJava8LambdaAsArgument</span>(<span class="cm-type">int</span> <span class="cm-variable">i</span>) {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">SquareRoot</span> <span class="cm-variable">squareRoot</span> <span class="cm-operator">=</span> (<span class="cm-variable">n</span>) <span class="cm-operator">-&gt;</span> (<span class="cm-variable">Math</span>.<span class="cm-variable">sqrt</span>(<span class="cm-variable">n</span>));</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="3"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">return</span> <span class="cm-variable">displayData</span>(<span class="cm-variable">squareRoot</span>, <span class="cm-variable">i</span>);</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="4"></div></div><pre><span style="padding-right: 29px;">}</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="5"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="6"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">private</span> <span class="cm-keyword">static</span> <span class="cm-type">double</span> <span class="cm-def">displayData</span>(<span class="cm-variable">SquareRoot</span> <span class="cm-variable">squareRoot</span>, <span class="cm-type">int</span> <span class="cm-variable">i</span>) {</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="7"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">return</span> <span class="cm-variable">squareRoot</span>.<span class="cm-variable">findSquareRoot</span>(<span class="cm-number">9</span>);</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="8"></div></div><pre><span style="padding-right: 29px;">}</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 157px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="255"><br></p>
+              <p pid="272">In the above example, the&nbsp;square root is passed
+                as an input to the method&nbsp;<code>displayData</code>.</p>
+              <h2 pid="222"><strong>Lambda Expression With the Type of Input
+                  Syntax</strong></h2>
+              <p pid="275">We can use the type on input in syntax, e.g.&nbsp;<code>int
+                  n,&nbsp;</code>in this case.</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">SquareRoot</span> <span class="cm-variable">squareRoot</span> <span class="cm-operator">=</span> (<span class="cm-type">int</span> <span class="cm-variable">n</span>) <span class="cm-operator">-&gt;</span> (<span class="cm-variable">Math</span>.<span class="cm-variable">sqrt</span>(<span class="cm-variable">n</span>));</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 27px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="276"><br></p>
+              <h2 pid="224"><strong>Lambda Expression With No Input&nbsp;</strong></h2>
+              <p pid="225">A function can have no input, which can be seen
+                below:</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">Abstarct</span> <span class="cm-variable">method</span> <span class="cm-variable">in</span> <span class="cm-variable">functionalInterface</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">abstract</span> <span class="cm-type">double</span> <span class="cm-def">sayHello</span>();</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="3"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="4"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="5"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">Lambda</span> <span class="cm-variable">expression</span> <span class="cm-keyword">for</span> <span class="cm-keyword">abstract</span> <span class="cm-variable">method</span> <span class="cm-variable">will</span> <span class="cm-variable">look</span> <span class="cm-variable">like</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="6"></div></div><pre><span style="padding-right: 29px;">() <span class="cm-operator">-&gt;</span> (<span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-variable">“Hellow”</span>))</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 120px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="259"><br></p>
+              <p pid="226">The () represents an empty input, and the response is
+                &nbsp;<code>String Hellow</code>&nbsp;.</p>
+              <h2 pid="232"><strong>Lambda Expression With More Than One
+                  Input&nbsp;</strong></h2>
+              <p pid="233">The&nbsp;abstract method sum takes two inputs of
+                type&nbsp;<code>int</code>&nbsp;.&nbsp;</p>
+              <div class="CodeMirror cm-s-default"><div
+                  class="CodeMirror-scroll"><div class="CodeMirror-sizer"
+                    style="margin-left: 29px; margin-bottom: 0px;
+                    border-right-width: 30px; min-width: 319px; min-height:
+                    26px; padding-right: 0px; padding-bottom: 0px;"><div
+                      style="position: relative; top: 0px;"><div
+                        class="CodeMirror-lines"><div style="position: relative;
+                          outline: none;"><div class="CodeMirror-code"><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="1"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">abstract</span> <span class="cm-variable">method</span> <span class="cm-variable">sum</span> <span class="cm-variable">in</span> <span class="cm-variable">functional</span> <span class="cm-keyword">interface</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="2"></div></div><pre><span style="padding-right: 29px;"><span class="cm-keyword">abstract</span> <span class="cm-type">int</span> <span class="cm-def">sum</span>(<span class="cm-type">int</span> <span class="cm-variable">a</span>, <span class="cm-type">int</span> <span class="cm-variable">b</span>);</span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="3"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="4"></div></div><pre><span style="padding-right: 29px;"></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="5"></div></div><pre><span style="padding-right: 29px;"><span class="cm-variable">Lambda</span> <span class="cm-variable">expression</span> <span class="cm-keyword">for</span> <span class="cm-keyword">abstract</span> <span class="cm-variable">method</span> <span class="cm-variable">will</span> <span class="cm-variable">look</span> <span class="cm-variable">like</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="6"></div></div><pre><span style="padding-right: 29px;">(<span class="cm-variable">a</span>,<span class="cm-variable">b</span>) <span class="cm-operator">-&gt;</span> (<span class="cm-variable">a</span><span class="cm-operator">+</span><span class="cm-variable">b</span>)  <span class="cm-variable">OR</span></span></pre></div><div
+                              style="position: relative;"><div
+                                class="CodeMirror-gutter-wrapper" style="left:
+                                -29px; width: 29px;"><div
+                                  class="CodeMirror-linenumber
+                                  CodeMirror-gutter-elt" style="left: 0px;
+                                  width: 20px;" data-line-number="7"></div></div><pre><span style="padding-right: 29px;">(<span class="cm-type">int</span> <span class="cm-variable">a</span>,<span class="cm-type">int</span> <span class="cm-variable">b</span>) <span class="cm-operator">-&gt;</span> (<span class="cm-variable">a</span><span class="cm-operator">+</span><span class="cm-variable">b</span>)</span></pre></div></div></div></div></div></div><div
+                    class="CodeMirror-gutters" style="height: 139px;"><div
+                      class="CodeMirror-gutter CodeMirror-linenumbers"
+                      style="width: 28px;"></div></div></div></div>
+              <p pid="277"><br></p>
+              <p pid="234">The detailed code can be found <a
+                  href="https://github.com/DharmendraRathor/horizon/blob/master/java8feature/src/main/java/com/dsr/java/java8feature/LambdaExample.java"
+                  target="_blank" rel="nofollow">here</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Poetry in coding
+              2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="../../js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
