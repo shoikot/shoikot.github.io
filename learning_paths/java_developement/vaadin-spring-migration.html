@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Vaadin 8 to Spring Boot Migration Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Chosen Palette: Calm Harmony */
+        /* Application Structure Plan: A single-page, multi-section layout with a sticky side-navigation. This structure allows users to follow the migration linearly or jump directly to a specific step. Key interactions include a side-by-side POM comparison, before/after code toggles, and an interactive process diagram. This design was chosen to transform a static guide into a dynamic tool, aiding comprehension and practical application for developers. */
+        /* Visualization & Content Choices: 
+           - Report Info: POM file changes. Goal: Compare. Viz: Side-by-side code blocks. Interaction: Click to highlight related sections. Justification: A diff-like view is intuitive for developers. Method: HTML/CSS/JS.
+           - Report Info: Java code refactoring. Goal: Show before/after states. Viz: Toggled code snippets. Interaction: Button to switch views. Justification: Focuses on one change at a time, saving space. Method: HTML/CSS/JS.
+           - Report Info: Overall migration process. Goal: Organize. Viz: HTML/CSS flowchart. Interaction: Click to scroll to details. Justification: Provides a high-level map of the process. Method: HTML/CSS/JS.
+           - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #5D5C61;
+        }
+
+        .bg-primary {
+            background-color: #F8F7F4;
+        }
+
+        .bg-secondary {
+            background-color: #FFFFFF;
+        }
+
+        .text-accent {
+            color: #4A908A;
+        }
+
+        .border-accent {
+            border-color: #4A908A;
+        }
+
+        .highlight-accent {
+            background-color: #F4A261;
+            color: white;
+        }
+
+        /* For sticky nav */
+        .sticky-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 1.5rem;
+        }
+
+        /* For process diagram lines */
+        .process-step {
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -2rem;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 2rem;
+            background-color: #4A908A;
+        }
+
+        @media (min-width: 768px) {
+            .process-step:not(:last-child)::after {
+                left: auto;
+                right: -2rem;
+                top: 50%;
+                bottom: auto;
+                transform: translateY(-50%);
+                width: 2rem;
+                height: 2px;
+            }
+        }
+
+        /* Syntax Highlighting-like styles */
+        pre[class*="language-"] {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5em;
+            margin: .5em 0;
+            overflow: auto;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .token.tag,
+        .token.keyword {
+            color: #f92672;
+        }
+
+        .token.comment {
+            color: #75715e;
+        }
+
+        .token.string,
+        .token.attr-value {
+            color: #e6db74;
+        }
+
+        .token.punctuation {
+            color: #f8f8f2;
+        }
+
+        .token.attr-name {
+            color: #a6e22e;
+        }
+
+        .token.class-name,
+        .token.function {
+            color: #66d9ef;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-accent mb-2">Interactive Vaadin to Spring Boot Migration</h1>
+            <p class="text-lg text-gray-600">A hands-on guide to modernizing your Vaadin 8 application.</p>
+        </header>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Sticky Navigation -->
+            <aside class="md:w-1/4 lg:w-1/5">
+                <nav id="side-nav" class="sticky-nav space-y-2">
+                    <a href="#introduction"
+                        class="block font-semibold text-accent bg-gray-200 p-3 rounded-lg">Introduction</a>
+                    <a href="#process" class="block font-medium hover:text-accent p-3 rounded-lg">Migration Process</a>
+                    <a href="#pom-changes" class="block font-medium hover:text-accent p-3 rounded-lg">1. pom.xml
+                        Changes</a>
+                    <a href="#main-class" class="block font-medium hover:text-accent p-3 rounded-lg">2. Main Class</a>
+                    <a href="#refactor-ui" class="block font-medium hover:text-accent p-3 rounded-lg">3. Refactor UI</a>
+                    <a href="#navigation" class="block font-medium hover:text-accent p-3 rounded-lg">4. Navigation</a>
+                    <a href="#dependency-injection" class="block font-medium hover:text-accent p-3 rounded-lg">5.
+                        Dependency Injection</a>
+                    <a href="#config-run" class="block font-medium hover:text-accent p-3 rounded-lg">6. Configuration &
+                        Run</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="md:w-3/4 lg:w-4/5">
+                <section id="introduction" class="bg-secondary p-8 rounded-xl shadow-md mb-12">
+                    <h2 class="text-3xl font-bold text-accent mb-4">Why Migrate?</h2>
+                    <p class="text-gray-700 leading-relaxed">This guide provides a detailed walkthrough for converting a
+                        traditional Vaadin 8 Maven project to a modern Vaadin-Spring-Boot application. The primary
+                        benefit of this migration is leveraging Spring Boot's auto-configuration, simplified dependency
+                        management, and seamless integration with the broader Spring ecosystem. This interactive tool
+                        will help you visualize the changes and understand the core concepts behind the migration.</p>
+                </section>
+
+                <section id="process" class="mb-12">
+                    <h2 class="text-3xl font-bold text-accent mb-6 text-center">The Migration Process at a Glance</h2>
+                    <p class="text-center text-gray-600 mb-8">This diagram shows the high-level steps for the migration.
+                        Click on any step to jump to the detailed instructions.</p>
+                    <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8 md:gap-16">
+                        <div class="process-step text-center cursor-pointer"
+                            onclick="document.getElementById('pom-changes').scrollIntoView({behavior: 'smooth'});">
+                            <div
+                                class="bg-secondary p-6 rounded-full border-4 border-accent w-32 h-32 flex items-center justify-center mx-auto">
+                                <span class="font-bold text-lg">1. POM</span>
+                            </div>
+                            <p class="mt-2 font-semibold">Update pom.xml</p>
+                        </div>
+                        <div class="process-step text-center cursor-pointer"
+                            onclick="document.getElementById('main-class').scrollIntoView({behavior: 'smooth'});">
+                            <div
+                                class="bg-secondary p-6 rounded-full border-4 border-accent w-32 h-32 flex items-center justify-center mx-auto">
+                                <span class="font-bold text-lg">2. Code</span>
+                            </div>
+                            <p class="mt-2 font-semibold">Create Main Class</p>
+                        </div>
+                        <div class="process-step text-center cursor-pointer"
+                            onclick="document.getElementById('refactor-ui').scrollIntoView({behavior: 'smooth'});">
+                            <div
+                                class="bg-secondary p-6 rounded-full border-4 border-accent w-32 h-32 flex items-center justify-center mx-auto">
+                                <span class="font-bold text-lg">3. Refactor</span>
+                            </div>
+                            <p class="mt-2 font-semibold">Annotate UIs & Views</p>
+                        </div>
+                        <div class="process-step text-center"
+                            onclick="document.getElementById('config-run').scrollIntoView({behavior: 'smooth'});">
+                            <div
+                                class="bg-secondary p-6 rounded-full border-4 border-accent w-32 h-32 flex items-center justify-center mx-auto">
+                                <span class="font-bold text-lg">4. Run</span>
+                            </div>
+                            <p class="mt-2 font-semibold">Configure & Run</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="pom-changes" class="bg-secondary p-8 rounded-xl shadow-md mb-12">
+                    <h2 class="text-3xl font-bold text-accent mb-4">1. Interactive `pom.xml` Comparison</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">The first and most critical step is updating your
+                        `pom.xml`. Instead of just showing the new code, this tool lets you compare the old and new
+                        structures side-by-side. The left side represents a typical Vaadin 8 POM, and the right shows
+                        the new Spring Boot equivalent. Notice how the Spring Boot parent simplifies dependency
+                        management.</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2 text-center">Before: Standard Vaadin 8 POM</h3>
+                            <pre class="language-xml"><code>&lt;properties&gt;
+    &lt;vaadin.version&gt;8.14.3&lt;/vaadin.version&gt;
+    &lt;maven.compiler.source&gt;11&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;11&lt;/maven.compiler.target&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.vaadin&lt;/groupId&gt;
+        &lt;artifactId&gt;vaadin-server&lt;/artifactId&gt;
+        &lt;version&gt;${vaadin.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.vaadin&lt;/groupId&gt;
+        &lt;artifactId&gt;vaadin-client-compiled&lt;/artifactId&gt;
+        &lt;version&gt;${vaadin.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;com.vaadin&lt;/groupId&gt;
+            &lt;artifactId&gt;vaadin-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;${vaadin.version}&lt;/version&gt;
+            ...
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2 text-center">After: Vaadin with Spring Boot</h3>
+                            <pre class="language-xml"><code>&lt;parent&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+    &lt;version&gt;2.1.18.RELEASE&lt;/version&gt;
+&lt;/parent&gt;
+
+&lt;properties&gt;
+    &lt;vaadin.version&gt;8.14.3&lt;/vaadin.version&gt;
+    &lt;java.version&gt;11&lt;/java.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.vaadin&lt;/groupId&gt;
+        &lt;artifactId&gt;vaadin-spring-boot-starter&lt;/artifactId&gt;
+        &lt;version&gt;${vaadin.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="code-refactor-sections">
+                    <!-- Sections 2-6 will be dynamically populated here -->
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = [
+                {
+                    id: 'main-class',
+                    title: '2. Create the Spring Boot Application Main Class',
+                    description: 'Spring Boot applications require a main entry point. This is a class annotated with `@SpringBootApplication` that contains a `main` method to bootstrap the application. This replaces the need for a `web.xml` file.',
+                    beforeCode: null,
+                    afterCode: `package com.example.yourapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}`,
+                    lang: 'java'
+                },
+                {
+                    id: 'refactor-ui',
+                    title: '3. Refactor UI Classes',
+                    description: 'With Spring, you no longer need a custom `VaadinServlet`. Instead, you annotate your UI class with `@SpringUI` to register it with the Spring context. Spring Boot handles the servlet mapping automatically.',
+                    beforeCode: `@Theme("mytheme")
+public class MyUI extends UI {
+    @Override
+    protected void init(VaadinRequest vaadinRequest) {
+        // UI initialization
+    }
+}`,
+                    afterCode: `import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.annotations.Theme;
+// ... other imports
+
+@SpringUI // This annotation registers the UI with Spring
+@Theme("mytheme")
+public class MyUI extends UI {
+    @Override
+    protected void init(VaadinRequest vaadinRequest) {
+        // UI initialization
+    }
+}`,
+                    lang: 'java'
+                },
+                {
+                    id: 'navigation',
+                    title: '4. Implement Spring-Based Navigation',
+                    description: 'Vaadin\'s `Navigator` is replaced by a Spring-aware equivalent. Annotate your view classes with `@SpringView` and your main UI with `@SpringViewDisplay`. This allows Spring to manage view creation and navigation.',
+                    beforeCode: `// Manual Navigator setup
+Navigator navigator = new Navigator(this, viewContainer);
+navigator.addView("myView", new MyView());`,
+                    afterCode: `// In your view class:
+@SpringView(name = "myView")
+public class MyView extends VerticalLayout implements View {
+    // ...
+}
+
+// In your UI class:
+@SpringUI
+@SpringViewDisplay // Designates this UI as the container for views
+public class MyUI extends UI {
+    @Override
+    protected void init(VaadinRequest request) {
+        // A component to display views
+        Panel viewContainer = new Panel();
+        viewContainer.setSizeFull();
+        setContent(viewContainer);
+        // Spring automatically creates and manages the navigator.
+        // Navigate with: getUI().getNavigator().navigateTo("myView");
+    }
+}`,
+                    lang: 'java'
+                },
+                {
+                    id: 'dependency-injection',
+                    title: '5. Use Dependency Injection',
+                    description: 'One of the biggest benefits of Spring is dependency injection. You can now use `@Autowired` to inject any Spring-managed bean (like services or repositories) directly into your UI components.',
+                    beforeCode: `// Manually instantiating services
+public class MyUI extends UI {
+    private MyService myService = new MyService();
+    // ...
+}`,
+                    afterCode: `@SpringUI
+public class MyUI extends UI {
+    @Autowired
+    private MyService myService; // Injected by Spring
+
+    @Override
+    protected void init(VaadinRequest vaadinRequest) {
+        Button button = new Button("Call Service");
+        button.addClickListener(e -> 
+            Notification.show(myService.sayHello())
+        );
+        setContent(button);
+    }
+}
+
+@Service // Example service bean
+public class MyService {
+    public String sayHello() {
+        return "Hello from the injected service!";
+    }
+}`,
+                    lang: 'java'
+                },
+                {
+                    id: 'config-run',
+                    title: '6. Configuration and Running',
+                    description: 'Finally, configure your application using a simple `application.properties` file in `src/main/resources`. You can then run the application directly from your IDE or build an executable JAR.',
+                    beforeCode: `<!-- Deployment to a Servlet Container (e.g., Tomcat) -->
+<!-- Requires a web.xml or Servlet 3.0 annotations -->`,
+                    afterCode: `# src/main/resources/application.properties
+server.port=8080
+vaadin.servlet.urlMapping=/ui/*
+
+# To run from command line:
+# mvn spring-boot:run`,
+                    lang: 'properties'
+                }
+            ];
+
+            const container = document.getElementById('code-refactor-sections');
+            sections.forEach(section => {
+                const sectionEl = document.createElement('section');
+                sectionEl.id = section.id;
+                sectionEl.className = 'bg-secondary p-8 rounded-xl shadow-md mb-12';
+
+                let content = `<h2 class="text-3xl font-bold text-accent mb-4">${section.title}</h2>
+                       <p class="text-gray-700 leading-relaxed mb-6">${section.description}</p>`;
+
+                if (section.beforeCode) {
+                    content += `
+                <div class="mb-4">
+                    <button data-target="${section.id}-code" data-type="before" class="code-toggle highlight-accent px-4 py-2 rounded-md font-semibold">Before</button>
+                    <button data-target="${section.id}-code" data-type="after" class="code-toggle px-4 py-2 rounded-md font-semibold bg-gray-200">After</button>
+                </div>
+                <div id="${section.id}-code">
+                    <pre class="language-${section.lang}"><code>${escapeHtml(section.beforeCode)}</code></pre>
+                </div>
+            `;
+                } else {
+                    content += `<pre class="language-${section.lang}"><code>${escapeHtml(section.afterCode)}</code></pre>`;
+                }
+
+                sectionEl.innerHTML = content;
+                container.appendChild(sectionEl);
+            });
+
+            function escapeHtml(unsafe) {
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            // Code toggling logic
+            document.querySelectorAll('.code-toggle').forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    const type = button.dataset.type;
+                    const section = sections.find(s => `${s.id}-code` === targetId);
+
+                    const codeContainer = document.getElementById(targetId);
+                    const code = type === 'before' ? section.beforeCode : section.afterCode;
+                    codeContainer.innerHTML = `<pre class="language-${section.lang}"><code>${escapeHtml(code)}</code></pre>`;
+
+                    // Update button styles
+                    document.querySelectorAll(`[data-target="${targetId}"]`).forEach(btn => {
+                        btn.classList.remove('highlight-accent', 'bg-gray-200');
+                        if (btn.dataset.type === type) {
+                            btn.classList.add('highlight-accent');
+                        } else {
+                            btn.classList.add('bg-gray-200');
+                        }
+                    });
+                });
+            });
+
+            // Sticky nav active state
+            const navLinks = document.querySelectorAll('#side-nav a');
+            const contentSections = document.querySelectorAll('main section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-accent', 'bg-gray-200');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('text-accent', 'bg-gray-200');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            contentSections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
