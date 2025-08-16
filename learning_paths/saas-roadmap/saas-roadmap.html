@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive SaaS Launch Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Calm Neutrals -->
+    <!-- Application Structure Plan: The application is structured as an interactive dashboard. It starts with a high-level summary showing overall project progress. The main content consists of four large, collapsible accordion panels, one for each major phase of the project. This design allows the user to see the big picture at a glance or drill down into specific milestones and weekly tasks. The core interactive element is the checklist for each task, which dynamically updates progress bars at the milestone, phase, and overall project levels. This structure was chosen to transform a static timeline into a functional, motivating project tracker that is more engaging and user-friendly than a simple table. State is saved to localStorage for persistence. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Project Phases & Milestones -> Goal: Organize & Navigate -> Viz/Presentation: Nested Accordion Panels (HTML/CSS/JS) -> Interaction: Click to expand/collapse sections -> Justification: Provides a clean, hierarchical view of the project, preventing information overload while allowing easy access to details.
+        - Report Info: Weekly Plan Tasks -> Goal: Track Progress -> Viz/Presentation: Interactive Checklists (HTML forms) -> Interaction: Check/uncheck to mark tasks complete -> Justification: Turns the static plan into an actionable to-do list, which is the primary value for the user.
+        - Report Info: Task Completion Status -> Goal: Motivate & Inform -> Viz/Presentation: Dynamic Progress Bars (HTML/CSS/JS) -> Interaction: Bars update automatically when a task's status changes -> Justification: Offers immediate visual feedback on progress, which is a key motivator for long-term projects.
+        - Library/Method: All interactions and visualizations are built with vanilla JavaScript and styled with Tailwind CSS to keep the application lightweight and self-contained. No Chart.js needed.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+            color: #333;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .accordion-content.open {
+            max-height: 5000px;
+            /* A large enough value */
+            transition: max-height 1s ease-in-out;
+        }
+
+        .progress-bar-bg {
+            background-color: #e0e0e0;
+        }
+
+        .progress-bar-fill {
+            background-color: #4a90e2;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .task-label {
+            cursor: pointer;
+        }
+
+        .task-label:hover .task-checkbox-custom {
+            border-color: #4a90e2;
+        }
+
+        .task-checkbox:checked+.task-label .task-checkbox-custom {
+            background-color: #4a90e2;
+            border-color: #4a90e2;
+        }
+
+        .task-checkbox:checked+.task-label .task-checkbox-custom svg {
+            display: block;
+        }
+
+        .task-checkbox:checked+.task-label .task-text {
+            text-decoration: line-through;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">SaaS Side-Project Launch Planner</h1>
+            <p class="text-gray-600 mt-2">Your interactive timeline for turning an idea into a product.</p>
+        </header>
+
+        <div id="overall-progress-section" class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">Overall Progress</h2>
+            <div class="progress-bar-bg w-full rounded-full h-4">
+                <div id="overall-progress-bar" class="progress-bar-fill h-4 rounded-full" style="width: 0%;"></div>
+            </div>
+            <p id="overall-progress-text" class="text-right text-sm text-gray-600 mt-2">0% Complete</p>
+        </div>
+
+        <main id="timeline-container" class="space-y-4">
+            <!-- Timeline will be dynamically generated here -->
+        </main>
+
+        <footer class="text-center mt-12">
+            <button id="reset-button"
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                Reset Progress
+            </button>
+            <p class="text-xs text-gray-500 mt-4">Progress is saved automatically in your browser.</p>
+        </footer>
+    </div>
+
+    <script>
+        const timelineData = [
+            {
+                id: 'phase-1',
+                title: 'Phase 1: Ideation & Research',
+                duration: '1-2 Months',
+                effort: 'Medium',
+                milestones: [
+                    {
+                        id: 'ms-1-1',
+                        title: '1.1 Market & Competitor Research',
+                        duration: '2-4 weeks',
+                        tasks: [
+                            { id: 't-1-1-1', text: '<strong>Week 1:</strong> Brainstorm and list 5-10 potential problems to solve. Prioritize the top three.' },
+                            { id: 't-1-1-2', text: '<strong>Week 2:</strong> For problem #1, research competitors and list their key features and pricing.' },
+                            { id: 't-1-1-3', text: '<strong>Week 3:</strong> For problems #2 & #3, repeat the research process.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-1-2',
+                        title: '1.2 Idea Validation',
+                        duration: '2-4 weeks',
+                        tasks: [
+                            { id: 't-1-2-1', text: '<strong>Week 4:</strong> Create a simple landing page draft with a clear problem statement and a call to action.' },
+                            { id: 't-1-2-2', text: '<strong>Week 5:</strong> Publish the landing page. Share it on social media/forums to get initial sign-ups.' },
+                            { id: 't-1-2-3', text: '<strong>Week 6:</strong> Schedule and conduct validation calls with a few of your early sign-ups.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-1-3',
+                        title: '1.3 Tech Stack & Architecture Planning',
+                        duration: '1-2 weeks',
+                        tasks: [
+                            { id: 't-1-3-1', text: '<strong>Week 7:</strong> Finalize the tech stack. Create a simple architectural diagram.' },
+                            { id: 't-1-3-2', text: '<strong>Week 8:</strong> Design the database schema for the MVP\'s core functionality.' },
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'phase-2',
+                title: 'Phase 2: Core Development',
+                duration: '3-6 Months',
+                effort: 'High',
+                milestones: [
+                    {
+                        id: 'ms-2-1',
+                        title: '2.1 Landing Page Development',
+                        duration: '2-3 weeks',
+                        tasks: [
+                            { id: 't-2-1-1', text: '<strong>Week 9:</strong> Build the static HTML and CSS for the final landing page.' },
+                            { id: 't-2-1-2', text: '<strong>Week 10:</strong> Add form functionality and integrate with an email service like Mailchimp or ConvertKit.' },
+                            { id: 't-2-1-3', text: '<strong>Week 11:</strong> Test the entire page and fix any bugs.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-2-2',
+                        title: '2.2 User Authentication & Database Setup',
+                        duration: '3-4 weeks',
+                        tasks: [
+                            { id: 't-2-2-1', text: '<strong>Week 12:</strong> Set up your backend API routes for user registration and login.' },
+                            { id: 't-2-2-2', text: '<strong>Week 13:</strong> Implement user authentication, password hashing, and session management.' },
+                            { id: 't-2-2-3', text: '<strong>Week 14:</strong> Test all auth flows and security measures.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-2-3',
+                        title: '2.3 Core Application Development',
+                        duration: '8-12 weeks',
+                        tasks: [
+                            { id: 't-2-3-1', text: '<strong>Week 15-26:</strong> Break down the core feature into small, weekly tasks. For example, "Week 15: Build the basic dashboard UI," "Week 16: Implement the first CRUD operation for a resource." This is your core coding block.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-2-4',
+                        title: '2.4 Admin App Development (MVP)',
+                        duration: '2-4 weeks',
+                        tasks: [
+                            { id: 't-2-4-1', text: '<strong>Week 27-30:</strong> Build the admin panel. Start with a list of users, then add the ability to view and edit user data. Finally, add basic metrics like total users.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-2-5',
+                        title: '2.5 Basic Integrations & Payments',
+                        duration: '2-3 weeks',
+                        tasks: [
+                            { id: 't-2-5-1', text: '<strong>Week 31:</strong> Integrate Stripe Checkout for one-time or subscription payments.' },
+                            { id: 't-2-5-2', text: '<strong>Week 32:</strong> Implement the webhook handler for payment success events.' },
+                            { id: 't-2-5-3', text: '<strong>Week 33:</strong> Set up transactional emails for receipts and account notifications.' },
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'phase-3',
+                title: 'Phase 3: Testing & Preparation',
+                duration: '1-2 Months',
+                effort: 'High',
+                milestones: [
+                    {
+                        id: 'ms-3-1',
+                        title: '3.1 Alpha Testing',
+                        duration: '2 weeks',
+                        tasks: [
+                            { id: 't-3-1-1', text: '<strong>Week 34-35:</strong> Run through every user flow in the app. Manually test for bugs and unexpected behavior. Get a few friends to do the same.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-3-2',
+                        title: '3.2 Beta Testing & Feedback Loop',
+                        duration: '4-6 weeks',
+                        tasks: [
+                            { id: 't-3-2-1', text: '<strong>Week 36-41:</strong> Invite beta users. Gather feedback through a dedicated channel (e.g., a shared Slack or Discord). Prioritize and fix the most critical issues and feature requests.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-3-3',
+                        title: '3.3 Legal & Compliance',
+                        duration: '1-2 weeks',
+                        tasks: [
+                            { id: 't-3-3-1', text: '<strong>Week 42:</strong> Use a legal template or service to draft initial privacy policy and terms.' },
+                            { id: 't-3-3-2', text: '<strong>Week 43:</strong> Add links to the legal documents in the app and on the landing page.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-3-4',
+                        title: '3.4 Go-to-Market Strategy',
+                        duration: '2 weeks',
+                        tasks: [
+                            { id: 't-3-4-1', text: '<strong>Week 44-45:</strong> Write your launch day content. Schedule social media posts. Prepare your Product Hunt or Indie Hackers post. Create a press kit.' },
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'phase-4',
+                title: 'Phase 4: Launch & Post-Launch',
+                duration: 'Ongoing',
+                effort: 'Medium',
+                milestones: [
+                    {
+                        id: 'ms-4-1',
+                        title: '4.1 Public Launch',
+                        duration: '1-2 weeks',
+                        tasks: [
+                            { id: 't-4-1-1', text: '<strong>Week 46-47:</strong> Launch day! Announce on all planned channels. Actively engage with comments and questions.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-4-2',
+                        title: '4.2 User Support & Monitoring',
+                        duration: 'Ongoing',
+                        tasks: [
+                            { id: 't-4-2-1', text: '<strong>Ongoing:</strong> Dedicate a few hours each week to monitoring for bugs and responding to user support tickets.' },
+                        ]
+                    },
+                    {
+                        id: 'ms-4-3',
+                        title: '4.3 Feature Development',
+                        duration: 'Ongoing',
+                        tasks: [
+                            { id: 't-4-3-1', text: '<strong>Ongoing:</strong> Build new features based on a prioritized roadmap informed by user feedback.' },
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        const STORAGE_KEY = 'saas_launch_progress';
+        let progressState = {};
+
+        function saveProgress() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(progressState));
+        }
+
+        function loadProgress() {
+            const savedProgress = localStorage.getItem(STORAGE_KEY);
+            if (savedProgress) {
+                progressState = JSON.parse(savedProgress);
+            } else {
+                // Initialize state if nothing is saved
+                timelineData.forEach(phase => {
+                    phase.milestones.forEach(milestone => {
+                        milestone.tasks.forEach(task => {
+                            progressState[task.id] = false;
+                        });
+                    });
+                });
+            }
+        }
+
+        function calculateProgress() {
+            let totalTasks = 0;
+            let completedTasks = 0;
+
+            timelineData.forEach(phase => {
+                let phaseTotalTasks = 0;
+                let phaseCompletedTasks = 0;
+
+                phase.milestones.forEach(milestone => {
+                    let milestoneTotalTasks = milestone.tasks.length;
+                    let milestoneCompletedTasks = milestone.tasks.filter(task => progressState[task.id]).length;
+
+                    phaseTotalTasks += milestoneTotalTasks;
+                    phaseCompletedTasks += milestoneCompletedTasks;
+
+                    const milestoneProgress = milestoneTotalTasks > 0 ? (milestoneCompletedTasks / milestoneTotalTasks) * 100 : 0;
+                    updateProgressBar(`${milestone.id}-progress-bar`, `${milestone.id}-progress-text`, milestoneProgress, `${milestoneCompletedTasks}/${milestoneTotalTasks}`);
+                });
+
+                totalTasks += phaseTotalTasks;
+                completedTasks += phaseCompletedTasks;
+
+                const phaseProgress = phaseTotalTasks > 0 ? (phaseCompletedTasks / phaseTotalTasks) * 100 : 0;
+                updateProgressBar(`${phase.id}-progress-bar`, `${phase.id}-progress-text`, phaseProgress, `${phaseCompletedTasks}/${phaseTotalTasks}`);
+            });
+
+            const overallProgress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+            updateProgressBar('overall-progress-bar', 'overall-progress-text', overallProgress, `${completedTasks}/${totalTasks} Tasks`);
+        }
+
+        function updateProgressBar(barId, textId, progress, textSuffix) {
+            const bar = document.getElementById(barId);
+            const text = document.getElementById(textId);
+            if (bar) {
+                bar.style.width = `${progress}%`;
+            }
+            if (text) {
+                text.textContent = `${Math.round(progress)}% Complete ${textSuffix ? `(${textSuffix})` : ''}`;
+            }
+        }
+
+        function handleTaskChange(event) {
+            const taskId = event.target.id;
+            progressState[taskId] = event.target.checked;
+            saveProgress();
+            calculateProgress();
+        }
+
+        function createTaskElement(task) {
+            return `
+                <div class="flex items-start space-x-3 py-2">
+                    <input type="checkbox" id="${task.id}" class="task-checkbox hidden" ${progressState[task.id] ? 'checked' : ''}>
+                    <label for="${task.id}" class="task-label flex items-center text-gray-700">
+                        <span class="task-checkbox-custom w-5 h-5 border-2 border-gray-300 rounded-md flex-shrink-0 flex items-center justify-center mr-3">
+                            <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </span>
+                        <span class="task-text">${task.text}</span>
+                    </label>
+                </div>
+            `;
+        }
+
+        function createMilestoneElement(milestone) {
+            return `
+                <div class="milestone-accordion border-t border-gray-200">
+                    <button class="accordion-toggle flex justify-between items-center w-full py-4 px-6 text-left">
+                        <div class="flex-grow">
+                            <h4 class="font-semibold text-gray-800">${milestone.title}</h4>
+                            <p class="text-sm text-gray-500">${milestone.duration}</p>
+                            <div class="progress-bar-bg w-full rounded-full h-2 mt-2">
+                                <div id="${milestone.id}-progress-bar" class="progress-bar-fill h-2 rounded-full" style="width: 0%;"></div>
+                            </div>
+                            <p id="${milestone.id}-progress-text" class="text-xs text-gray-500 mt-1 text-right">0% Complete</p>
+                        </div>
+                        <svg class="w-6 h-6 transform transition-transform text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content bg-gray-50 px-6 pb-4">
+                        <div class="divide-y divide-gray-200">
+                            ${milestone.tasks.map(createTaskElement).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createPhaseElement(phase) {
+            return `
+                <div class="phase-accordion bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-toggle flex justify-between items-center w-full p-6 text-left">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">${phase.title}</h3>
+                            <p class="text-gray-600">${phase.duration} | Effort: ${phase.effort}</p>
+                            <div class="progress-bar-bg w-full rounded-full h-3 mt-3">
+                                <div id="${phase.id}-progress-bar" class="progress-bar-fill h-3 rounded-full" style="width: 0%;"></div>
+                            </div>
+                            <p id="${phase.id}-progress-text" class="text-sm text-gray-500 mt-1 text-right">0% Complete</p>
+                        </div>
+                        <svg class="w-8 h-8 transform transition-transform text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        ${phase.milestones.map(createMilestoneElement).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderTimeline() {
+            const container = document.getElementById('timeline-container');
+            container.innerHTML = timelineData.map(createPhaseElement).join('');
+
+            document.querySelectorAll('.accordion-toggle').forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    content.classList.toggle('open');
+                    button.querySelector('svg').classList.toggle('rotate-180');
+                });
+            });
+
+            document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', handleTaskChange);
+            });
+        }
+
+        document.getElementById('reset-button').addEventListener('click', () => {
+            if (confirm('Are you sure you want to reset all your progress? This cannot be undone.')) {
+                localStorage.removeItem(STORAGE_KEY);
+                progressState = {};
+                loadProgress();
+                renderTimeline();
+                calculateProgress();
+            }
+        });
+
+        // Initial Load
+        loadProgress();
+        renderTimeline();
+        calculateProgress();
+
+    </script>
+</body>
+
+</html>
