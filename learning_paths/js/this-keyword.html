@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demystifying the 'this' Keyword in JavaScript | A Deep Dive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --code-bg-color: #2d2d2d;
+            --code-text-color: #f8f8f2;
+            --border-color: #e0e0e0;
+            --link-color: #3498db;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.7;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 2rem 1rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        article {
+            padding: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        code {
+            font-family: 'Roboto Mono', monospace;
+            background-color: rgba(27, 31, 35, 0.07);
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 0.9em;
+            border-radius: 3px;
+        }
+
+        pre {
+            background-color: var(--code-bg-color);
+            color: var(--code-text-color);
+            padding: 1.5rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        sup {
+            font-size: 0.75em;
+            vertical-align: super;
+            margin-left: 2px;
+            color: var(--link-color);
+        }
+
+        .keyword {
+            color: #569cd6;
+            /* A typical keyword color in IDEs */
+        }
+
+        .comment {
+            color: #6a9955;
+            /* A typical comment color */
+        }
+
+        .conclusion {
+            background-color: #eaf2f8;
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f1f1f1;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Demystifying the 'this' Keyword in JavaScript</h1>
+            A comprehensive guide to understanding one of JavaScript's most fundamental concepts.
+        </header>
+
+        <article>
+            <h2>The `this` Keyword: A Fundamental Concept</h2>
+            <p>
+                In JavaScript, the <code>this</code> keyword is a powerful, yet often misunderstood, feature. It's a
+                special reference to an object, but which object it refers to is not static. Its value is determined by
+                the <strong>execution context</strong>—in other words, how and where a function is called. Understanding
+                <code>this</code> is a crucial step towards mastering JavaScript.
+            </p>
+
+            <h2>`this` in Different Contexts</h2>
+            <p>
+                The value of <code>this</code> changes dramatically depending on the context. Let's break down the most
+                common scenarios.
+            </p>
+
+            <h3>1. Global Context</h3>
+            <p>
+                When <code>this</code> is used outside of any function, in the global scope, it refers to the global
+                object. In a web browser, the global object is always <code>window</code>.
+            </p>
+            <pre><code><span class="comment">// In a browser's global scope</span>
+console.log(<span class="keyword">this</span> === window); <span class="comment">// true</span></code></pre>
+
+            <h3>2. Function Context</h3>
+            <p>
+                Inside a regular function, the value of <code>this</code> depends entirely on how that function is
+                invoked.
+            </p>
+
+            <h4>Simple Function Call</h4>
+            <p>
+                In <strong>non-strict mode</strong>, if a function is called by itself (e.g.,
+                <code>myFunction()</code>), <code>this</code> will default to the global object (<code>window</code>).
+            </p>
+            <pre><code><span class="keyword">function</span> showThis() {
+  console.log(<span class="keyword">this</span>);
+}
+
+showThis(); <span class="comment">// In a browser, this will log the window object</span></code></pre>
+
+            <h4>Strict Mode</h4>
+            <p>
+                In <strong>strict mode</strong> (declared with <code>"use strict";</code>), if <code>this</code> is not
+                explicitly set by the call, it will be <code>undefined</code>. This prevents accidental modification of
+                the global object.
+            </p>
+            <pre><code><span class="keyword">"use strict"</span>;
+<span class="keyword">function</span> showThisStrict() {
+  console.log(<span class="keyword">this</span>);
+}
+
+showThisStrict(); <span class="comment">// undefined</span></code></pre>
+
+            <h4>As an Object Method</h4>
+            <p>
+                When a function is called as a method of an object, <code>this</code> refers to the object the method is
+                called on. This is one of the most common and intuitive uses of <code>this</code>.
+            </p>
+            <pre><code><span class="keyword">const</span> person = {
+  name: "John",
+  greet: <span class="keyword">function</span>() {
+    console.log(`Hello, my name is ${<span class="keyword">this</span>.name}`);
+  }
+};
+
+person.greet(); <span class="comment">// "Hello, my name is John"</span></code></pre>
+
+            <h4>As a Constructor</h4>
+            <p>
+                When a function is used as a constructor with the <code>new</code> keyword, <code>this</code> is bound
+                to the new object being created and returned.
+            </p>
+            <pre><code><span class="keyword">function</span> Person(name) {
+  <span class="keyword">this</span>.name = name;
+}
+
+<span class="keyword">const</span> john = <span class="keyword">new</span> Person("John");
+console.log(john.name); <span class="comment">// "John"</span></code></pre>
+
+            <h2>Explicitly Setting `this`: `call`, `apply`, and `bind`</h2>
+            <p>
+                JavaScript provides three powerful function methods to control the value of <code>this</code>
+                explicitly, allowing you to "borrow" methods and set the context.
+            </p>
+
+            <h3>`call()` and `apply()`</h3>
+            <p>
+                These methods immediately invoke a function with a specified <code>this</code> value. The only
+                difference is how they accept arguments: <code>call()</code> takes a comma-separated list, while
+                <code>apply()</code> takes a single array of arguments.
+            </p>
+            <pre><code><span class="keyword">function</span> greet(greeting) {
+  console.log(`${greeting}, my name is ${<span class="keyword">this</span>.name}`);
+}
+
+<span class="keyword">const</span> person = { name: "Alice" };
+
+greet.call(person, "Hi");       <span class="comment">// "Hi, my name is Alice"</span>
+greet.apply(person, ["Hello"]); <span class="comment">// "Hello, my name is Alice"</span></code></pre>
+
+            <h3>`bind()`</h3>
+            <p>
+                The <code>bind()</code> method creates a <strong>new function</strong> where <code>this</code> is
+                permanently set to a provided value. This is extremely useful for callbacks and event handlers where the
+                original context might be lost.
+            </p>
+            <pre><code><span class="keyword">const</span> person = {
+  name: "Bob",
+  greet: <span class="keyword">function</span>() {
+    console.log(`My name is ${<span class="keyword">this</span>.name}`);
+  }
+};
+
+<span class="keyword">const</span> greetBob = person.greet.bind(person);
+greetBob(); <span class="comment">// "My name is Bob"</span></code></pre>
+
+            <h2>Arrow Functions and `this`</h2>
+            <p>
+                Arrow functions (introduced in ES6) revolutionize how <code>this</code> works. They do not have their
+                own <code>this</code> context. Instead, <code>this</code> is determined lexically—it inherits the
+                <code>this</code> value from its surrounding (enclosing) scope.
+            </p>
+            <pre><code><span class="keyword">const</span> person = {
+  name: "Charlie",
+  sayName: <span class="keyword">function</span>() {
+    <span class="comment">// 'this' here refers to the person object</span>
+    setTimeout(() => {
+      <span class="comment">// 'this' inside the arrow function is the same as outside</span>
+      console.log(`My name is ${<span class="keyword">this</span>.name}`);
+    }, 1000);
+  }
+};
+
+person.sayName(); <span class="comment">// After 1 second, logs "My name is Charlie"</span></code></pre>
+            <p>
+                This behavior avoids the common pre-ES6 pattern of having to write <code>var self = this;</code> or
+                using <code>bind()</code> within object methods.
+            </p>
+
+            <h2>`this` in Other Scenarios</h2>
+            <ul>
+                <li><strong>Event Handlers:</strong> When a function is used as an event handler, <code>this</code> is
+                    set to the element that triggered the event.<sup>[1][3]</sup></li>
+                <li><strong>Prototype Chain:</strong> If a method is on an object's prototype chain, <code>this</code>
+                    still refers to the object the method was called on, not the prototype object itself.<sup>[5]</sup>
+                </li>
+                <li><strong>Getters and Setters:</strong> In a getter or setter, <code>this</code> is bound to the
+                    object from which the property is being accessed or set.<sup>[5]</sup></li>
+            </ul>
+
+            <div class="conclusion">
+                <p>Understanding the context-dependent nature of <code>this</code> is a crucial aspect of JavaScript
+                    programming. The rules that govern its value are consistent, and mastering them will allow for more
+                    predictable and powerful code.</p>
+            </div>
+
+            <h2>Sources</h2>
+            <ul>
+                <li>w3schools.com</li>
+                <li>medium.com</li>
+                <li>mozilla.org</li>
+                <li>unibo.it</li>
+                <li>cach3.com</li>
+            </ul>
+
+        </article>
+
+        <footer>
+            <p>&copy; 2025 Md Aminul Karim. All rights reserved.</p>
+        </footer>
+    </div> 
+
+</body>
+
+</html>
